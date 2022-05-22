@@ -3,7 +3,7 @@
         {
             "id": "001",
            "img":"https://cdn5.vectorstock.com/i/thumb-large/39/49/user-profile-with-happy-face-line-icon-smile-vector-33343949.jpg",
-           "text":"Happy user",
+           "text":"Customer",
             "number": "900000",
             "duration": "3"
         },
@@ -23,9 +23,9 @@
         },
         {
             "id": "004",
-            "img":"https://sernovafinancial.com/wp-content/uploads/2019/03/award-icon-220.png",
-            "text":"Awards",
-            "number": "465",
+            "img":"https://media.istockphoto.com/vectors/earning-growth-icon-vector-id939238878?k=20&m=939238878&s=612x612&w=0&h=7awD9FH66qFmH9oqUr2wuJTkDtfvLIyOAY2ZhKZ1Nbk=",
+            "text":"Annual revenue",
+            "number": "120M",
             "duration": "4"
         }
     ]
