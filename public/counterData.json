@@ -1,0 +1,31 @@
+
+     [
+        {
+            "id": "001",
+           "img":"https://cdn5.vectorstock.com/i/thumb-large/39/49/user-profile-with-happy-face-line-icon-smile-vector-33343949.jpg",
+           "text":"Happy user",
+            "number": "900000",
+            "duration": "3"
+        },
+        {
+            "id": "002",
+            "img":"https://www.iconpacks.net/icons/2/free-handshake-icon-3312-thumb.png",
+            "text":"Order completed this year.",
+            "number": "5321",
+            "duration": "4"
+        },
+        {
+            "id": "003",
+            "img":"https://media.istockphoto.com/vectors/3d-globe-round-world-map-with-green-continents-and-blue-oceans-and-vector-id1312178644?k=20&m=1312178644&s=170667a&w=0&h=5XdcdM4jZ2o_D9PNMmhm98oUfTlebkqnYFZ05Un9TVg=",
+            "text":"Countries we ship to",
+            "number": "195",
+            "duration": "4"
+        },
+        {
+            "id": "004",
+            "img":"https://sernovafinancial.com/wp-content/uploads/2019/03/award-icon-220.png",
+            "text":"Awards",
+            "number": "465",
+            "duration": "4"
+        }
+    ]

@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import "./Tool.css";
 
 const Tool = ({ tool }) => {
   const {
@@ -14,11 +15,11 @@ const Tool = ({ tool }) => {
   } = tool;
   return (
     <div className="px-5">
-      <div class="card md:w-96 bg-base-100 shadow-xl">
+      <div class="card tool-card md:w-96 bg-base-100 shadow-xl">
         <figure>
           <img className="w-48 h-48" src={img} />
         </figure>
-        <div class="card-body">
+        <div class="card-body tool-card-body">
           <h2 class="card-title" style={{ fontFamily: "Macondo" }}>
             {name}
             <div class="badge badge-secondary">${price}</div>
@@ -54,7 +55,7 @@ const Tool = ({ tool }) => {
           </p>
           <div class="card-actions justify-end">
             <Link to="/purchase">
-              <button class="btn btn-xs btn-primary">
+              <button class="btn tool-btn btn-xs btn-primary">
                 Purchase <FontAwesomeIcon className="ml-2" icon={faCartPlus} />
               </button>
             </Link>
