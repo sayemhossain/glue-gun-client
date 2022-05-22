@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Tool from "./Tool";
 
 const Tools = () => {
+  const [tools, setTools] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/tools`)
+      .then((res) => res.json())
+      .then((data) => setTools(data));
+  }, []);
   return (
-    <div>
+    <div className="px-5 md:px-20 py-10">
       <div className="text-center pt-10">
         <h1 className="text-3xl font-bold uppercase">Tools Category</h1>
         <p className="text-orange-400">
-          <small>This is Glue Gun official website</small>
+          <small>Totol items: {tools.length}</small>
         </p>
+      </div>
+      <div className="grid grid-cols-3 gap-5 mt-10">
+        {tools.map((tool) => (
+          <Tool key={tool._id} tool={tool}></Tool>
+        ))}
       </div>
     </div>
   );

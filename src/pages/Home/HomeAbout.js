@@ -13,7 +13,7 @@ const HomeAbout = () => {
           <img className="rounded-lg shadow-xl" src={aboutImg} alt="" />
         </div>
         <div className="px-2 md:px-10 pt-7">
-          <h1 className="text-4xl mb-5 md:mb-10 font-bold homeAbout-header">
+          <h1 className="text-4xl mb-5 md:mb-10 text-gray-500 homeAbout-header">
             Our Capabilities
           </h1>
           <p>
