@@ -4,6 +4,7 @@ import About from "./pages/About/About";
 import Blogs from "./pages/Blogs/Blogs";
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home/Home";
+import Footer from "./pages/Shared/Footer";
 import Navbar from "./pages/Shared/Navbar";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
