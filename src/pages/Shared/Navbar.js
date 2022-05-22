@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo/logo.png";
 
 const Navbar = () => {
   return (
-    <div className="px-0 md:px-20">
+    <div className="px-2 md:px-20 py-0 md:py-5">
       <div class="navbar bg-base-100">
         <div class="navbar-start">
           <div class="dropdown">
@@ -28,36 +29,22 @@ const Navbar = () => {
               class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
-              </li>
-              <li tabindex="0">
-                <a class="justify-between">
-                  Parent
-                  <svg
-                    class="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </a>
-                <ul class="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                <Link to="/home">Home</Link>
               </li>
               <li>
-                <a>Item 3</a>
+                <Link to="/blogs">Blogs</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link to="/" class="btn w-52 btn-ghost normal-case text-xl">
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
@@ -71,12 +58,14 @@ const Navbar = () => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/about">Contact</Link>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
         <div class="navbar-end">
-          <a class="btn btn-neutral">login</a>
+          <Link className="btn btn-outline" to="/login">
+            Login
+          </Link>
         </div>
       </div>
     </div>
