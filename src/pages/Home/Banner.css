@@ -8,6 +8,7 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Russo One', sans-serif;
 font-family: 'Teko', sans-serif;
 font-family: 'Zen Loop', cursive; */
+
 .banner-header {
   font-family: "Koulen", cursive;
 }
@@ -22,7 +23,6 @@ font-family: 'Zen Loop', cursive; */
   height: 70vh;
 }
 @media only screen and (max-width: 688px) {
-  .hero-content {
-    margin-top: -200px;
-  }
 }
+
+/* @media only screen and (min-width: 688px) and (max-width: 992px) {} */

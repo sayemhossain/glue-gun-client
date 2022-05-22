@@ -1,0 +1,24 @@
+.marketing-container {
+  margin-top: -50px;
+}
+.marketing-card {
+  transition: all 0.2s ease-in-out;
+}
+.marketing-card:hover {
+  background-color: rgb(27, 27, 27);
+  transform: scaleY(1.1);
+  color: white;
+}
+.marketing-header {
+  font-family: "Grape Nuts", cursive;
+  font-size: 800;
+  font-weight: bold;
+}
+@media only screen and (max-width: 688px) {
+  .marketing-container {
+    margin-top: 2rem;
+  }
+  .marketing-card {
+    margin-bottom: 3rem;
+  }
+}
