@@ -1,14 +1,16 @@
 import React from "react";
 import Banner from "./Banner";
 import HomeAbout from "./HomeAbout";
-import Maketing from "./Maketing";
+import Marketing from "./Marketing";
+import Tools from "./Tools";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Maketing></Maketing>
+      <Marketing></Marketing>
       <HomeAbout></HomeAbout>
+      <Tools></Tools>
     </div>
   );
 };
