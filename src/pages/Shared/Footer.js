@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="">
-      <footer class="footer px-0 md:px-28 grid-cols-2 md:grid-rows-2 p-10 bg-neutral text-neutral-content">
+      <footer class="footer  px-0 md:px-28 grid-cols-2 md:grid-rows-2 p-10 bg-neutral text-neutral-content">
         <div className="mx-auto md:mx-0">
           <span class="footer-title">Services</span>
           <a class="link link-hover">Branding</a>
