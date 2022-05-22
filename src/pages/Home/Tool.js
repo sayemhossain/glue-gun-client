@@ -20,7 +20,10 @@ const Tool = ({ tool }) => {
           <img className="w-48 h-48" src={img} />
         </figure>
         <div class="card-body tool-card-body">
-          <h2 class="card-title" style={{ fontFamily: "Macondo" }}>
+          <h2
+            class="card-title text-gray-500"
+            style={{ fontFamily: "Macondo" }}
+          >
             {name}
             <div class="badge badge-secondary">${price}</div>
           </h2>
