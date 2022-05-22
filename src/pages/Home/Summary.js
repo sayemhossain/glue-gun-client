@@ -23,7 +23,7 @@ function Summary({ summary }) {
     <div>
       <div class="text-center py-5">
         <img className="w-20 mx-auto" src={img} alt="" />
-        <p className="font-bold mt-1 text-red-400 text-xl">{count}</p>
+        <p className="font-bold mt-1 text-red-400 text-xl">{count}+</p>
         <p className="font-bold uppercase" style={{ fontFamily: "Macondo" }}>
           {text}
         </p>

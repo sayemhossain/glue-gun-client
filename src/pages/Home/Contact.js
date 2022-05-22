@@ -27,7 +27,7 @@ const Contact = () => {
             className="text-2xl md:text-3xl font-bold pb-5"
             style={{ fontFamily: "Macondo" }}
           >
-            Call Us or Fill the Form
+            Call Us & Boost Your Confidance
           </h1>
           <p>
             “I like to listen. I have learned a great deal from listening
