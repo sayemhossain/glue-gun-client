@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Koulen&family=Lobster&family=Macondo&family=Roboto:ital@1&family=Russo+One&family=Teko&family=Zen+Loop&display=swap");
+
+/* font-family: 'Grape Nuts', cursive;
+font-family: 'Koulen', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Macondo', cursive;
+font-family: 'Roboto', sans-serif;
+font-family: 'Russo One', sans-serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Zen Loop', cursive; */
+.banner-header {
+  font-family: "Koulen", cursive;
+}
+.banner-subheader {
+  font-family: "Grape Nuts", cursive;
+}
+.banner-txt {
+  font-family: "Zen Loop", cursive;
+}
+
+.banner-container {
+  height: 70vh;
+}
+@media only screen and (max-width: 688px) {
+  .hero-content {
+    margin-top: -200px;
+  }
+}
