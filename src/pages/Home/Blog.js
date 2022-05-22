@@ -54,7 +54,7 @@ const Blog = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="blog-card">
             <img className="w-full h-60" src={blog2} alt="" />
             <h1 className="text-xl mt-5 text-gray-600 mb-4 blog-header">
               Fugitive Gummy Glue & Dispensing Options?
@@ -86,7 +86,7 @@ const Blog = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="blog-card">
             <img className="w-full h-60" src={blog3} alt="" />
             <h1 className="text-xl mt-5 text-gray-600 mb-4  blog-header">
               Save on Gummy Glue with a Pneumatic Dispensing Applicator.

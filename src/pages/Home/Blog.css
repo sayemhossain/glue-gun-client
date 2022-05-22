@@ -5,3 +5,10 @@
   font-family: "Macondo", cursive;
   font-weight: bold;
 }
+.blog-card img {
+  transition: all 0.4s ease-in;
+}
+.blog-card img:hover {
+  transform: scale(1.1);
+  overflow: hidden;
+}
