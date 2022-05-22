@@ -24,7 +24,7 @@ const Blog = () => {
         <div className="blog-card">
           <div className="">
             <img className="w-full h-60" src={blog4} alt="" />
-            <h1 className="text-xl mt-5 mb-4 text-gray-500 blog-header">
+            <h1 className="text-xl mt-5 mb-4 text-gray-600 blog-header">
               What are the Benefits of using Industrial Glue Guns?
             </h1>
             <p>
@@ -56,7 +56,7 @@ const Blog = () => {
         <div>
           <div>
             <img className="w-full h-60" src={blog2} alt="" />
-            <h1 className="text-xl mt-5 text-gray-500 mb-4 blog-header">
+            <h1 className="text-xl mt-5 text-gray-600 mb-4 blog-header">
               Fugitive Gummy Glue & Dispensing Options?
             </h1>
             <p>
@@ -88,7 +88,7 @@ const Blog = () => {
         <div>
           <div>
             <img className="w-full h-60" src={blog3} alt="" />
-            <h1 className="text-xl mt-5 text-gray-500 mb-4  blog-header">
+            <h1 className="text-xl mt-5 text-gray-600 mb-4  blog-header">
               Save on Gummy Glue with a Pneumatic Dispensing Applicator.
             </h1>
             <p>
