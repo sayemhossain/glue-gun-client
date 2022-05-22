@@ -35,11 +35,11 @@ const Maketing = () => {
                 icon={faPalette}
               />
               <h1 className="text-2xl mb-3 marketing-header">
-                We Design Fabric
+                We Design Glue gun
               </h1>
               <p>
-                Choose from many fabrics and design your . Create and print only
-                the fabric you need with no minimum order.
+                Choose from many glue gun and design your . Create and print
+                only the glue gun you need with minimum order.
               </p>
             </div>
           </div>
