@@ -1,9 +1,12 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import auth from "../../firebase.init";
 import useToolDetails from "../../hooks/useToolDetails";
 
 const Purchase = () => {
+  const [user] = useAuthState(auth);
   const toolId = useParams();
   const [tool] = useToolDetails(toolId);
   const {
@@ -87,31 +90,92 @@ const Purchase = () => {
             <div>
               <div class="card bg-base-100 shadow-xl">
                 <div class="card-body">
-                  <h2 class="text-center" style={{ fontFamily: "Koulen" }}>
-                    <span className="text-2xl">Order Glue Gun!</span>
-                  </h2>
-                  <form action="" onSubmit={handleOrder}>
-                    <div className="text-center">
-                      <input
-                        type="text"
-                        name="order"
-                        placeholder="Enter quantity"
-                        class="input input-bordered input-sm w-full max-w-xs"
-                      />
+                  <div>
+                    <h2 class="text-center" style={{ fontFamily: "Koulen" }}>
+                      <span className="text-2xl">Customer details</span>
+                    </h2>
+                    <form action="">
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Name</span>
+                        </label>
+                        <input
+                          type="text"
+                          value={user.displayName}
+                          disabled
+                          class="input input-bordered input-sm w-full max-w-xs"
+                        />
+                      </div>
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Email</span>
+                        </label>
+                        <input
+                          type="text"
+                          value={user.email}
+                          disabled
+                          class="input input-bordered input-sm w-full max-w-xs"
+                        />
+                      </div>
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Address</span>
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Enter your address"
+                          class="input input-bordered input-sm w-full max-w-xs"
+                        />
+                      </div>
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Phone</span>
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Enter your phone number"
+                          class="input input-bordered input-sm w-full max-w-xs"
+                        />
+                      </div>
+                      <div class="card-actions justify-center my-3">
+                        <button class="btn btn-primary btn-sm">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="card bg-base-100 shadow-xl">
+                    <div className="card-body">
+                      <h2 class="text-center" style={{ fontFamily: "Koulen" }}>
+                        <span className="text-2xl">Order Glue Gun!</span>
+                      </h2>
+                      <form action="" onSubmit={handleOrder}>
+                        <div className="text-center">
+                          <input
+                            type="text"
+                            name="order"
+                            placeholder="Enter quantity"
+                            class="input input-bordered input-sm w-full max-w-xs"
+                          />
+                        </div>
+                        <div class="card-actions justify-center mt-3">
+                          <button class="btn btn-primary btn-sm btn-outline">
+                            Buy Now
+                          </button>
+                        </div>
+                      </form>
+                      <p
+                        className="text-center"
+                        style={{ fontFamily: "Macondo" }}
+                      >
+                        If you want to see your orders then click here <br></br>
+                        <Link
+                          to="/dashboard/myorders"
+                          className="text-blue-500 underline"
+                        >
+                          My orders
+                        </Link>
+                      </p>
                     </div>
-                    <div class="card-actions justify-center mt-3">
-                      <button class="btn btn-primary btn-sm">Buy Now</button>
-                    </div>
-                  </form>
-                  <p className="text-center" style={{ fontFamily: "Macondo" }}>
-                    If you want to see your orders then click here <br></br>
-                    <Link
-                      to="/dashboard/myorders"
-                      className="text-blue-500 underline"
-                    >
-                      My orders
-                    </Link>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
