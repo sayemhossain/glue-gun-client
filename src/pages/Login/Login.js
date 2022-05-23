@@ -1,8 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleLogo from "../../assets/google.svg";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let signInError;
+  let from = location.state?.from?.pathname || "/";
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    signInWithEmailAndPassword(email, password);
+  };
+  if (loading || googleLoading) {
+    return <Loading></Loading>;
+  }
+  if (error || googleError) {
+    signInError = (
+      <p className="mb-2 text-red-500">
+        <small>{error?.message || googleError?.message}</small>
+      </p>
+    );
+  }
+  if (user || googleUser) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="">
       <div className="hero min-h-screen bg-base-200 py-10 md:py-0">
@@ -22,13 +57,14 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
-              <form action="">
+              <form action="" onSubmit={handleSubmit}>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
                   <input
-                    type="text"
+                    type="email"
+                    name="email"
                     placeholder="email"
                     className="input input-bordered"
                   />
@@ -38,7 +74,8 @@ const Login = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="text"
+                    type="password"
+                    name="password"
                     placeholder="password"
                     className="input input-bordered"
                   />
@@ -59,7 +96,10 @@ const Login = () => {
                 </Link>
               </p>
               <div className="divider">OR</div>
-              <button className="btn btn-outline btn-primary">
+              <button
+                onClick={() => signInWithGoogle()}
+                className="btn btn-outline btn-primary"
+              >
                 <img className="mr-2" src={googleLogo} alt="" />
                 Continue with Google
               </button>

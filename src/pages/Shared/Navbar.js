@@ -1,3 +1,5 @@
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -7,6 +9,7 @@ import auth from "../../firebase.init";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  console.log(user);
   const handleSignOut = () => {
     signOut(auth);
   };
@@ -47,6 +50,16 @@ const Navbar = () => {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
+              <li>
+                {user && (
+                  <>
+                    <p className="block md:hidden px-5 uppercase border-t-2">
+                      <FontAwesomeIcon className="mr-1" icon={faUser} />
+                      {user?.displayName}
+                    </p>
+                  </>
+                )}
+              </li>
             </ul>
           </div>
           <Link to="/" className="btn w-52 btn-ghost normal-case text-xl">
@@ -58,11 +71,11 @@ const Navbar = () => {
             <li>
               <Link to="/home">Home</Link>
             </li>
-            {user && (
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-            )}
+
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
@@ -76,9 +89,15 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <button onClick={handleSignOut} className="btn btn-outline">
-              Logout
-            </button>
+            <>
+              <p className="hidden md:block px-5 uppercase">
+                <FontAwesomeIcon className="mr-1" icon={faUser} />
+                {user?.displayName}
+              </p>
+              <button onClick={handleSignOut} className="btn btn-outline">
+                Logout
+              </button>
+            </>
           ) : (
             <Link className="btn btn-outline" to="/login">
               Login

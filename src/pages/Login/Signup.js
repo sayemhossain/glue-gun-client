@@ -10,6 +10,7 @@ import {
 import auth from "../../firebase.init";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
+import Loading from "../Shared/Loading";
 
 const Signup = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -20,23 +21,34 @@ const Signup = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
 
-  const handleSignup = (event) => {
+  let signInError;
+  const handleSignup = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
     // this is for email pass signup
-    createUserWithEmailAndPassword(email, password);
-    // for verification email
-    sendEmailVerification();
-    // for update name
-    updateProfile({ displayName: name });
-    // for toast
+    await createUserWithEmailAndPassword(email, password);
     toast("Email verification send.");
+    // for verification email
+    await sendEmailVerification();
+    // for update name
+    await updateProfile({ displayName: name });
+    // for toast
   };
+  if (loading || googleLoading) {
+    return <Loading></Loading>;
+  }
+  if (error || googleError) {
+    signInError = (
+      <p className="mb-2 text-red-500">
+        <small>{error?.message || googleError?.message}</small>
+      </p>
+    );
+  }
   if (user || googleUser) {
-    navigate("/home");
+    navigate("/");
   }
   return (
     <div className="">
@@ -85,12 +97,13 @@ const Signup = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     placeholder="password"
                     className="input input-bordered"
                   />
                 </div>
+                <p>{signInError}</p>
                 <div className="form-control mt-6">
                   <button type="submit" className="btn btn-primary">
                     Signup

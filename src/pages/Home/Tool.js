@@ -1,11 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faStar } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Tool.css";
 
 const Tool = ({ tool }) => {
+  const navigate = useNavigate();
+
+  const navigateToToolDetails = () => {
+    navigate(`/purchase/${_id}`);
+  };
   const {
+    _id,
     name,
     img,
     price,
@@ -57,11 +63,12 @@ const Tool = ({ tool }) => {
             </span>
           </p>
           <div className="card-actions justify-end">
-            <Link to="/purchase">
-              <button className="btn tool-btn btn-xs btn-primary">
-                Purchase <FontAwesomeIcon className="ml-2" icon={faCartPlus} />
-              </button>
-            </Link>
+            <button
+              onClick={() => navigateToToolDetails(_id)}
+              className="btn tool-btn btn-xs btn-primary"
+            >
+              Purchase <FontAwesomeIcon className="ml-2" icon={faCartPlus} />
+            </button>
           </div>
         </div>
       </div>

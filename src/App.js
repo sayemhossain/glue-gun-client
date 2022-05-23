@@ -5,6 +5,7 @@ import Blogs from "./pages/Blogs/Blogs";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
+import Purchase from "./pages/Home/Purchase";
 import Login from "./pages/Login/Login";
 import RequireAuth from "./pages/Login/RequireAuth";
 import Signup from "./pages/Login/Signup";
@@ -18,6 +19,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
+        <Route
+          path="/purchase/:toolId"
+          element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/dashboard"
           element={
