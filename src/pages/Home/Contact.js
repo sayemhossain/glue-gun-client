@@ -9,7 +9,7 @@ import {
 
 const Contact = () => {
   return (
-    <section className="px-5 md:px-10 py-5">
+    <section className="px-5 md:px-10 py-5 md:pb-20">
       <div className="text-center pt-10">
         <h1
           className="text-3xl font-bold uppercase"

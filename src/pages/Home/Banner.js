@@ -7,26 +7,26 @@ const Banner = () => {
   return (
     <div className="">
       <div
-        class="hero min-h-screen"
+        className="hero min-h-screen"
         style={{
           backgroundImage:
             "url(https://www.bond-tech-industries.com/wp-content/uploads/2020/03/Small-glue-gun.jpg)",
         }}
       >
-        <div class="hero-overlay bg-opacity-70 banner-container"></div>
-        <div class="hero-content text-center text-neutral-content">
-          <div class="max-w-3xl">
-            <h1 class="banner-header text-5xl font-bold">Hello there</h1>
+        <div className="hero-overlay bg-opacity-70 banner-container"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-3xl">
+            <h1 className="banner-header text-5xl font-bold">Hello there</h1>
             <h4 className=" banner-subheader mb-5 mt-1 text-sm text-yellow-100">
               This is Glue Gun official website
             </h4>
-            <p class="mb-5 banner-txt text-2xl">
+            <p className="mb-5 banner-txt text-2xl">
               Hot Melt Glue Gun Kit Is Environmental-Friendly, It Has Super
               Strong Adhesive When Glue Between 2 Different Parts, But Easy To
               Clean When Forced Apart These 2 Stickup Parts, It Will Always Keep
               Your Items Clean.
             </p>
-            <button class="btn btn-primary">
+            <button className="btn btn-primary">
               Read More <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
             </button>
           </div>

@@ -13,8 +13,8 @@ const Maketing = () => {
     <div className="px-2 md:px-20 pb-10 marketing-container">
       <div className=" grid grid-cols-1 md:flex">
         <div className="mr-3">
-          <div class="card marketing-card bg-base-100 shadow-xl">
-            <div class="card-body text-center">
+          <div className="card marketing-card bg-base-100 shadow-xl">
+            <div className="card-body text-center">
               <FontAwesomeIcon
                 className="text-6xl text-accent mb-3"
                 icon={faPeopleRoof}
@@ -28,8 +28,8 @@ const Maketing = () => {
           </div>
         </div>
         <div className="mr-3">
-          <div class="card marketing-card bg-base-100 shadow-xl">
-            <div class="card-body text-center">
+          <div className="card marketing-card bg-base-100 shadow-xl">
+            <div className="card-body text-center">
               <FontAwesomeIcon
                 className="text-6xl text-accent mb-3"
                 icon={faPalette}
@@ -45,8 +45,8 @@ const Maketing = () => {
           </div>
         </div>
         <div>
-          <div class="card marketing-card bg-base-100 shadow-xl">
-            <div class="card-body text-center">
+          <div className="card marketing-card bg-base-100 shadow-xl">
+            <div className="card-body text-center">
               <FontAwesomeIcon
                 className="text-6xl text-accent mb-3"
                 icon={faAward}

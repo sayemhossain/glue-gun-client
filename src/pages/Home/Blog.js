@@ -57,7 +57,7 @@ const Blog = () => {
           <div className="blog-card">
             <img className="w-full h-60" src={blog2} alt="" />
             <h1 className="text-xl mt-5 text-gray-600 mb-4 blog-header">
-              Fugitive Gummy Glue & Dispensing Options?
+              Fugitive Gummy Glue & Dispensing Industrial Options?
             </h1>
             <p>
               Fugitive glue, also called gummy glue, credit card glue, e-z
