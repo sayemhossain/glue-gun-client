@@ -22,8 +22,9 @@ const Purchase = () => {
   const handleOrder = (event) => {
     event.preventDefault();
     const orderQuantity = event.target.order.value;
-    const newQuantity = parseInt(available_quantity) - parseInt(orderQuantity);
-    console.log(newQuantity);
+    // const newQuantity = parseInt(available_quantity) - parseInt(orderQuantity);
+    const address = event.target.address.value;
+    const phone = event.target.phone.value;
 
     if (orderQuantity > available_quantity) {
       return toast.error("Sorry we don't have enough products !");
@@ -32,18 +33,41 @@ const Purchase = () => {
       return toast.error("You have to fulfil our minimum orders requirment !");
     }
 
-    // send data to the server for updating the quantiry
-    const url = `http://localhost:5000/tools/${_id}`;
-    fetch(url, {
-      method: "PUT",
+    const order = {
+      orderId: _id,
+      productName: name,
+      customerNamer: user?.displayName,
+      img,
+      price,
+      available_quantity,
+      orderQuantity,
+      address,
+      phone,
+    };
+    console.log(order);
+
+    fetch(`http://localhost:5000/order`, {
+      method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ newQuantity }),
+      body: JSON.stringify(order),
     })
       .then((res) => res.json())
-      .then((data) => toast.success("Your order is Successfull!"));
+      .then((data) => toast("Your order is peanding...."));
     event.target.reset();
+    // send data to the server for updating the quantiry after order
+    // const url = `http://localhost:5000/tools/${_id}`;
+    // fetch(url, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ newQuantity }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => toast.success("Your order is Successfull!"));
+    // event.target.reset();
   };
 
   return (
@@ -92,9 +116,9 @@ const Purchase = () => {
                 <div class="card-body">
                   <div>
                     <h2 class="text-center" style={{ fontFamily: "Koulen" }}>
-                      <span className="text-2xl">Customer details</span>
+                      <span className="text-2xl"> Order Glue Gun!</span>
                     </h2>
-                    <form action="">
+                    <form action="" onSubmit={handleOrder}>
                       <div class="form-control">
                         <label class="label">
                           <span class="label-text">Name</span>
@@ -123,6 +147,7 @@ const Purchase = () => {
                         </label>
                         <input
                           type="text"
+                          name="address"
                           placeholder="Enter your address"
                           class="input input-bordered input-sm w-full max-w-xs"
                         />
@@ -133,48 +158,41 @@ const Purchase = () => {
                         </label>
                         <input
                           type="text"
+                          name="phone"
                           placeholder="Enter your phone number"
                           class="input input-bordered input-sm w-full max-w-xs"
                         />
                       </div>
-                      <div class="card-actions justify-center my-3">
-                        <button class="btn btn-primary btn-sm">Submit</button>
+                      <div className="text-center mt-3">
+                        <h3
+                          className="font-bold my-1"
+                          style={{ fontFamily: "Macondo" }}
+                        >
+                          Amount you need
+                        </h3>
+                        <input
+                          type="text"
+                          name="order"
+                          placeholder={minimum_order_quantity}
+                          class="input input-bordered input-sm w-full max-w-xs"
+                        />
+                      </div>
+                      <div class="card-actions justify-center mt-3">
+                        <button class="btn btn-primary btn-sm">Buy Now</button>
                       </div>
                     </form>
-                  </div>
-                  <div className="card bg-base-100 shadow-xl">
-                    <div className="card-body">
-                      <h2 class="text-center" style={{ fontFamily: "Koulen" }}>
-                        <span className="text-2xl">Order Glue Gun!</span>
-                      </h2>
-                      <form action="" onSubmit={handleOrder}>
-                        <div className="text-center">
-                          <input
-                            type="text"
-                            name="order"
-                            placeholder="Enter quantity"
-                            class="input input-bordered input-sm w-full max-w-xs"
-                          />
-                        </div>
-                        <div class="card-actions justify-center mt-3">
-                          <button class="btn btn-primary btn-sm btn-outline">
-                            Buy Now
-                          </button>
-                        </div>
-                      </form>
-                      <p
-                        className="text-center"
-                        style={{ fontFamily: "Macondo" }}
+                    <p
+                      className="text-center mt-2"
+                      style={{ fontFamily: "Macondo" }}
+                    >
+                      If you want to see your orders then click here <br></br>
+                      <Link
+                        to="/dashboard/myorders"
+                        className="text-blue-500 underline"
                       >
-                        If you want to see your orders then click here <br></br>
-                        <Link
-                          to="/dashboard/myorders"
-                          className="text-blue-500 underline"
-                        >
-                          My orders
-                        </Link>
-                      </p>
-                    </div>
+                        My orders
+                      </Link>
+                    </p>
                   </div>
                 </div>
               </div>
