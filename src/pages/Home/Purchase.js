@@ -37,6 +37,7 @@ const Purchase = () => {
       orderId: _id,
       productName: name,
       customerNamer: user?.displayName,
+      user: user.email,
       img,
       price,
       available_quantity,
@@ -56,18 +57,6 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => toast("Your order is peanding...."));
     event.target.reset();
-    // send data to the server for updating the quantiry after order
-    // const url = `http://localhost:5000/tools/${_id}`;
-    // fetch(url, {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({ newQuantity }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => toast.success("Your order is Successfull!"));
-    // event.target.reset();
   };
 
   return (

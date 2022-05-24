@@ -1,31 +1,45 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import "./Dashboard.css";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+
   return (
-    <div>
-      <div class="drawer drawer-mobile">
-        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content flex flex-col items-center">
-          <Outlet></Outlet>
-          <label
-            for="my-drawer-2"
-            class="btn btn-primary drawer-button lg:hidden"
+    <div className="bg-blue-50">
+      <div class="drawer  drawer-mobile">
+        <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <h2
+            className="text-4xl font-bold text-center pt-7 pb-3 text-base-400"
+            style={{ fontFamily: "Teko" }}
           >
-            Open drawer
-          </label>
+            Welcome to your Dashboard
+          </h2>
+          <Outlet></Outlet>
         </div>
         <div class="drawer-side">
-          <label for="my-drawer-2" class="drawer-overlay"></label>
-          <ul class="menu p-4 overflow-y-auto w-72 bg-base-200 shadow-2xl text-base-content">
+          <label for="dashboard-sidebar" class="drawer-overlay"></label>
+          <ul
+            class="menu p-4 overflow-y-auto w-72  shadow-2xl text-base-content"
+            style={{ backgroundColor: "#3D4451" }}
+          >
             <li>
-              <Link to="/dashboard">My Orders</Link>
+              <Link className="text-white uppercase" to="/dashboard">
+                My Orders
+              </Link>
             </li>
             <li>
-              <Link to="/dashboard/reviews">Add A Review</Link>
+              <Link className="text-white uppercase" to="/dashboard/addreview">
+                Add A Review
+              </Link>
             </li>
             <li>
-              <Link to="/dashboard/myprofile">My Profile</Link>
+              <Link className="text-white uppercase" to="/dashboard/myprofile">
+                My Profile
+              </Link>
             </li>
           </ul>
         </div>
