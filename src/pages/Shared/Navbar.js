@@ -11,6 +11,7 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
   };
   return (
     <div className="px-2 md:px-20 py-0 md:py-5">
