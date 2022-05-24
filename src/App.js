@@ -3,8 +3,10 @@ import "./App.css";
 import About from "./pages/About/About";
 import Blogs from "./pages/Blogs/Blogs";
 import ContactUs from "./pages/ContactUs/ContactUs";
+import AddReview from "./pages/Dashboard/AddReview";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
+import MyProfile from "./pages/Dashboard/MyProfile";
 import Home from "./pages/Home/Home";
 import Purchase from "./pages/Home/Purchase";
 import Login from "./pages/Login/Login";
@@ -37,6 +39,8 @@ function App() {
           }
         >
           <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path="addreview" element={<AddReview></AddReview>}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
         </Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>

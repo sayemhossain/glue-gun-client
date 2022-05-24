@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 import auth from "../../firebase.init";
 import OrderDetails from "./OrderDetails";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
-  console.log(user.email);
 
   useEffect(() => {
     if (user) {
@@ -18,11 +18,17 @@ const MyOrders = () => {
     }
   }, [user]);
 
-  const handleDeleteOrder = () => {
-    setOrders("");
-  };
+  // const userEmail = user.email;
+  // const url = `http://localhost:5000/order?user=${userEmail}`;
+  // console.log(url);
+  // const { data, isLoading, refetch } = useQuery(["orders", userEmail], () =>
+  //   fetch(url, {
+  //     method: "GET",
+  //   }).then((res) => res.json())
+  // );
+  // console.log(data);
   return (
-    <div className="pb-20 ">
+    <div className="md:pb-20 ">
       <div>
         <div className="text-center py-5">
           <h1
@@ -46,7 +52,7 @@ const MyOrders = () => {
               <th>Order Quantity</th>
               <th>Total cost</th>
               <th>Order Cancle</th>
-              <th>payment information</th>
+              <th>payment status</th>
             </tr>
           </thead>
           <tbody>
@@ -55,7 +61,6 @@ const MyOrders = () => {
                 key={order._id}
                 order={order}
                 index={index}
-                handleDeleteOrder={handleDeleteOrder}
               ></OrderDetails>
             ))}
           </tbody>

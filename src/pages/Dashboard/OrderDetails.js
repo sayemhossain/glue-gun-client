@@ -1,19 +1,20 @@
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const OrderDetails = ({ order, index, handleDeleteOrder }) => {
+const OrderDetails = ({ order, index }) => {
   const {
+    orderId,
     productName,
     img,
     price,
     customerNamer,
     address,
     phone,
+    user,
     orderQuantity,
   } = order;
 
-  // const handleDeleteOrder=()=>{
-
-  // }
   const totalCost = orderQuantity * price;
   const handleOrder = () => {
     console.log("Clicked");
@@ -29,6 +30,19 @@ const OrderDetails = ({ order, index, handleDeleteOrder }) => {
     //   .then((res) => res.json())
     //   .then((data) => toast.success("Your order is Successfull!"));
     // event.target.reset();
+  };
+  const handleDeleteOrder = (orderId) => {
+    fetch(`http://localhost:5000/order/${orderId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // if (data.deletedCount) {
+        //   toast.success(`Doctor deleted.`);
+        //   // setDeletingDoctor(null);
+        //   // refetch();
+        // }
+      });
   };
   return (
     <tr>
@@ -59,7 +73,9 @@ const OrderDetails = ({ order, index, handleDeleteOrder }) => {
       <td>${totalCost}</td>
       <td>
         <button
-          onClick={handleDeleteOrder}
+          onClick={() => {
+            handleDeleteOrder(orderId);
+          }}
           className="btn btn-outline btn-xs btn-error px-5"
         >
           Cancle
