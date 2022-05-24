@@ -18,6 +18,16 @@ const MyOrders = () => {
     }
   }, [user]);
 
+  // const {
+  //   data: orders,
+  //   isLoading,
+  //   refetch,
+  // } = useQuery("doctors", () =>
+  //   fetch(`http://localhost:5000/order?user=${user.email}`, {
+  //     method: "GET",
+  //   }).then((res) => res.json())
+  // );
+
   // const userEmail = user.email;
   // const url = `http://localhost:5000/order?user=${userEmail}`;
   // console.log(url);

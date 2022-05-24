@@ -11,6 +11,7 @@ import auth from "../../firebase.init";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "../Shared/Loading";
+import useToken from "../../hooks/useToken";
 
 const Signup = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -19,6 +20,7 @@ const Signup = () => {
     useCreateUserWithEmailAndPassword(auth);
   const [sendEmailVerification] = useSendEmailVerification(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user || googleUser);
   const navigate = useNavigate();
 
   let signInError;
@@ -47,7 +49,7 @@ const Signup = () => {
       </p>
     );
   }
-  if (user || googleUser) {
+  if (token) {
     navigate("/");
   }
   return (
