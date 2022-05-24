@@ -4,6 +4,7 @@ import About from "./pages/About/About";
 import Blogs from "./pages/Blogs/Blogs";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import MyOrders from "./pages/Dashboard/MyOrders";
 import Home from "./pages/Home/Home";
 import Purchase from "./pages/Home/Purchase";
 import Login from "./pages/Login/Login";
@@ -34,7 +35,9 @@ function App() {
               <Dashboard></Dashboard>
             </RequireAuth>
           }
-        ></Route>
+        >
+          <Route index element={<MyOrders></MyOrders>}></Route>
+        </Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/contact" element={<ContactUs></ContactUs>}></Route>

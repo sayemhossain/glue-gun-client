@@ -143,17 +143,6 @@ const Purchase = () => {
                       </div>
                       <div class="form-control">
                         <label class="label">
-                          <span class="label-text">Address</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="address"
-                          placeholder="Enter your address"
-                          class="input input-bordered input-sm w-full max-w-xs"
-                        />
-                      </div>
-                      <div class="form-control">
-                        <label class="label">
                           <span class="label-text">Phone</span>
                         </label>
                         <input
@@ -161,8 +150,21 @@ const Purchase = () => {
                           name="phone"
                           placeholder="Enter your phone number"
                           class="input input-bordered input-sm w-full max-w-xs"
+                          required
                         />
                       </div>
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Address</span>
+                        </label>
+                        <textarea
+                          name="address"
+                          class="textarea textarea-bordered"
+                          placeholder="Your address"
+                          required
+                        ></textarea>
+                      </div>
+
                       <div className="text-center mt-3">
                         <h3
                           className="font-bold my-1"
@@ -178,7 +180,9 @@ const Purchase = () => {
                         />
                       </div>
                       <div class="card-actions justify-center mt-3">
-                        <button class="btn btn-primary btn-sm">Buy Now</button>
+                        <button class="btn btn-primary btn-sm">
+                          place the order
+                        </button>
                       </div>
                     </form>
                     <p
@@ -186,10 +190,7 @@ const Purchase = () => {
                       style={{ fontFamily: "Macondo" }}
                     >
                       If you want to see your orders then click here <br></br>
-                      <Link
-                        to="/dashboard/myorders"
-                        className="text-blue-500 underline"
-                      >
+                      <Link to="/dashboard" className="text-blue-500 underline">
                         My orders
                       </Link>
                     </p>

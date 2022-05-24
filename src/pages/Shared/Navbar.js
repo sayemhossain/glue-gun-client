@@ -54,7 +54,10 @@ const Navbar = () => {
                 {user && (
                   <>
                     <p className="block md:hidden px-5 uppercase border-t-2">
-                      <FontAwesomeIcon className="mr-1" icon={faUser} />
+                      <FontAwesomeIcon
+                        className="mr-1 text-primary"
+                        icon={faUser}
+                      />
                       {user?.displayName}
                     </p>
                   </>
@@ -72,9 +75,11 @@ const Navbar = () => {
               <Link to="/home">Home</Link>
             </li>
 
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
+            {user && (
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            )}
 
             <li>
               <Link to="/blogs">Blogs</Link>
@@ -91,7 +96,7 @@ const Navbar = () => {
           {user ? (
             <>
               <p className="hidden md:block px-5 uppercase">
-                <FontAwesomeIcon className="mr-1" icon={faUser} />
+                <FontAwesomeIcon className="mr-1 text-primary" icon={faUser} />
                 {user?.displayName}
               </p>
               <button onClick={handleSignOut} className="btn btn-outline">
