@@ -1,6 +1,7 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import DeleteConfirmOrder from "./DeleteConfirmOrder";
 
 const OrderDetails = ({ order, index }) => {
@@ -66,7 +67,13 @@ const OrderDetails = ({ order, index }) => {
           </button>
         </td>
         <td>
-          <button class="btn btn-primary px-8 btn-outline btn-xs">Pay</button>
+          {
+            <Link to={`/dashboard/payment/${orderId}`}>
+              <button className="btn btn-primary px-8 btn-outline btn-xs">
+                pay
+              </button>
+            </Link>
+          }
         </td>
       </tr>
     </>

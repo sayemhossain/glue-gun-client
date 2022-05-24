@@ -2,11 +2,19 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 
 const MyProfile = () => {
   const [userProfile, setUserProfile] = useState([]);
   const [user] = useAuthState(auth);
+
+  const email = user.email;
+  useEffect(() => {
+    fetch(`http://localhost:5000/user/${email}`)
+      .then((res) => res.json())
+      .then((data) => setUserProfile(data));
+  }, [user, userProfile]);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -23,30 +31,51 @@ const MyProfile = () => {
       body: JSON.stringify(userInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        toast("Profile Updated");
+      });
+    e.target.reset();
   };
 
   return (
     <div className="">
       <div>
-        <h3 className="text-xl md:px-20">Profile</h3>
+        <h3
+          className="text-2xl md:px-20 mt-5 text-center "
+          style={{ fontFamily: "Teko" }}
+        >
+          User Profile
+        </h3>
       </div>
       <hr />
       <div className="pt-5">
-        <div class="card md:px-20 md:py-10 mb-10 mx-5 md:mx-10 lg:card-side bg-base-100 shadow-xl">
+        <div class="card md:px-20 md:py-10 mb-10 mx-5 md:mx-10 lg:card-side bg-base-100">
           <div>
             <div class="card md:w-96 bg-base-100 shadow-xl">
               <div class="card-body">
-                <h2 class="card-title">
-                  <FontAwesomeIcon className="mr-1" icon={faUser} />
-                  {user.displayName}
-                </h2>
-                <p>Email : {user.email}</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-                  voluptatibus est, sapiente laboriosam, perferendis recusandae
-                  distinctio quasi sunt, itaque explicabo saepe.
-                </p>
+                {userProfile.map((profile) => (
+                  <div key={profile._id}>
+                    <div className="flex items-center">
+                      <div>
+                        <p className="text-center text-gray-700 text-7xl mr-5">
+                          <FontAwesomeIcon className="mr-1" icon={faUser} />
+                        </p>
+                      </div>
+                      <div
+                        className="text-gray-600"
+                        style={{ fontFamily: "Macondo" }}
+                      >
+                        <h2 class="card-title text-center">
+                          {user.displayName}
+                        </h2>
+                        <p>Email : {user.email}</p>
+                        <p>Phone: {profile.phone}</p>
+                        <p>Address: {profile.address}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -91,6 +120,7 @@ const MyProfile = () => {
             </div>
           </div>
         </div>
+        <ToastContainer></ToastContainer>
       </div>
     </div>
   );

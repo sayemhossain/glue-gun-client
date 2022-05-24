@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="bg-blue-50">
+    <div className="bg-gray-50">
       <div class="drawer  drawer-mobile">
         <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
@@ -43,22 +43,19 @@ const Dashboard = () => {
         <div class="drawer-side">
           <label for="dashboard-sidebar" class="drawer-overlay"></label>
 
-          <ul
-            class="menu p-4 overflow-y-auto w-48 md:w-72  shadow-2xl text-base-content"
-            style={{ backgroundColor: "#3D4451" }}
-          >
+          <ul class="menu p-4 bg-gray-100 overflow-y-auto w-48 md:w-72  shadow-2xl text-base-content">
             <li>
-              <Link className="text-white uppercase" to="/dashboard">
+              <Link className=" uppercase" to="/dashboard">
                 My Orders
               </Link>
             </li>
             <li>
-              <Link className="text-white uppercase" to="/dashboard/addreview">
+              <Link className=" uppercase" to="/dashboard/addreview">
                 Add A Review
               </Link>
             </li>
             <li>
-              <Link className="text-white uppercase" to="/dashboard/myprofile">
+              <Link className=" uppercase" to="/dashboard/myprofile">
                 My Profile
               </Link>
             </li>
