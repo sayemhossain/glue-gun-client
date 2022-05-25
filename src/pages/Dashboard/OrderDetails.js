@@ -7,6 +7,7 @@ import DeleteConfirmOrder from "./DeleteConfirmOrder";
 const OrderDetails = ({ order, index }) => {
   const [deletingOrder, setDeletingOrder] = useState(false);
   const {
+    _id,
     orderId,
     productName,
     img,
@@ -68,7 +69,7 @@ const OrderDetails = ({ order, index }) => {
         </td>
         <td>
           {price && !order.paid && (
-            <Link to={`/dashboard/payment/${orderId}`}>
+            <Link to={`/dashboard/payment/${_id}`}>
               <button className="btn btn-primary px-8 btn-outline btn-xs">
                 pay
               </button>
