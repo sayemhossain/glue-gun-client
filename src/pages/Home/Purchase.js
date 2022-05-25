@@ -48,7 +48,7 @@ const Purchase = () => {
       phone,
     };
     console.log(order);
-
+    const newQuantity = available_quantity - orderQuantity;
     fetch(`http://localhost:5000/order`, {
       method: "POST",
       headers: {
@@ -57,22 +57,20 @@ const Purchase = () => {
       body: JSON.stringify(order),
     })
       .then((res) => res.json())
-      .then((data) => toast("Your order is peanding...."));
+      .then((data) => {
+        const url = `http://localhost:5000/tools/${_id}`;
+        fetch(url, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ newQuantity }),
+        })
+          .then((res) => res.json())
+          .then((data) => toast.success("Your order is Pending!"));
+      });
     event.target.reset();
   };
-
-  // send data to the server for updating the quantiry after order
-  // const url = `http://localhost:5000/tools/${_id}`;
-  // fetch(url, {
-  //   method: "PUT",
-  //   headers: {
-  //     "content-type": "application/json",
-  //   },
-  //   body: JSON.stringify({ newQuantity }),
-  // })
-  //   .then((res) => res.json())
-  //   .then((data) => toast.success("Your order is Successfull!"));
-  // event.target.reset();
 
   return (
     <section>

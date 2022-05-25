@@ -99,6 +99,7 @@ const MyProfile = () => {
                     name="phone"
                     placeholder="Phone"
                     class="input input-bordered"
+                    required
                   />
                 </div>
                 <div class="form-control">
@@ -109,6 +110,7 @@ const MyProfile = () => {
                     name="address"
                     class="textarea textarea-bordered"
                     placeholder="Address"
+                    required
                   ></textarea>
                 </div>
                 <div class="form-control mt-6">
