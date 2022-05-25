@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 import OrderDetails from "./OrderDetails";
 
 const MyOrders = () => {
@@ -18,24 +19,17 @@ const MyOrders = () => {
     }
   }, [user]);
 
+  // const email = user.email;
+  // const url = `http://localhost:5000/order?email=${email}`;
+  // console.log(url);
   // const {
   //   data: orders,
   //   isLoading,
   //   refetch,
-  // } = useQuery("doctors", () =>
-  //   fetch(`http://localhost:5000/order?user=${user.email}`, {
-  //     method: "GET",
-  //   }).then((res) => res.json())
-  // );
-
-  // const userEmail = user.email;
-  // const url = `http://localhost:5000/order?user=${userEmail}`;
-  // console.log(url);
-  // const { data, isLoading, refetch } = useQuery(["orders", userEmail], () =>
-  //   fetch(url, {
-  //     method: "GET",
-  //   }).then((res) => res.json())
-  // );
+  // } = useQuery(["orders", email], () => fetch(url).then((res) => res.json()));
+  // if (isLoading) {
+  //   return <Loading></Loading>;
+  // }
   // console.log(data);
   return (
     <div className="md:pb-20 ">
@@ -48,7 +42,7 @@ const MyOrders = () => {
             Orders Review
           </h1>
           <p className="text-orange-400">
-            <small>Total order: {orders.length}</small>
+            <small>Total order: {orders?.length}</small>
           </p>
         </div>
       </div>
@@ -66,7 +60,7 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order, index) => (
+            {orders?.map((order, index) => (
               <OrderDetails
                 key={order._id}
                 order={order}

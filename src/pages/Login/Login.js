@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleLogo from "../../assets/google.svg";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -15,9 +16,16 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   const location = useLocation();
+  const [token] = useToken(googleUser || user);
 
   let signInError;
   let from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -79,11 +87,7 @@ const Login = () => {
                     placeholder="password"
                     className="input input-bordered"
                   />
-                  <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
+                  <label className="label">{signInError}</label>
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Login</button>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Dashboard = () => {
@@ -57,6 +57,21 @@ const Dashboard = () => {
             <li>
               <Link className=" uppercase" to="/dashboard/myprofile">
                 My Profile
+              </Link>
+            </li>
+            <li>
+              <Link className=" uppercase" to="/dashboard/manageorders">
+                Manage All Orders
+              </Link>
+            </li>
+            <li>
+              <Link className=" uppercase" to="/dashboard/addtools">
+                Add A Tool
+              </Link>
+            </li>
+            <li>
+              <Link className=" uppercase" to="/dashboard/managetools">
+                Manage Tools
               </Link>
             </li>
           </ul>
