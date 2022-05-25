@@ -30,7 +30,7 @@ const CheckoutForm = ({ order }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    e.preventDefault();
+
     if (!stripe || !elements) {
       return;
     }
@@ -61,6 +61,7 @@ const CheckoutForm = ({ order }) => {
       });
     if (intentError) {
       setCardError(intentError?.message);
+      console.log("error");
       setProcessing(false);
     } else {
       setCardError("");
@@ -70,7 +71,7 @@ const CheckoutForm = ({ order }) => {
 
       //store payment on database
       const payment = {
-        appointment: _id,
+        order: _id,
         transactionId: paymentIntent.id,
       };
 

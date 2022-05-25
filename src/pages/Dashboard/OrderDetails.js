@@ -1,4 +1,4 @@
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -17,6 +17,7 @@ const OrderDetails = ({ order, index }) => {
     phone,
     totalCost,
     user,
+    paid,
     orderQuantity,
   } = order;
 
@@ -58,27 +59,38 @@ const OrderDetails = ({ order, index }) => {
         <td>Quantity : {orderQuantity}</td>
         <td>${totalCost}</td>
         <td>
-          <button
-            onClick={() => {
-              setDeletingOrder(order);
-            }}
-            className="btn btn-outline btn-xs btn-error px-5"
-          >
-            Cancle
-          </button>
+          {price && !paid && (
+            <button
+              onClick={() => {
+                setDeletingOrder(order);
+              }}
+              className="btn btn-outline btn-xs btn-error px-5"
+            >
+              Cancle
+            </button>
+          )}
+          {price && paid && (
+            <button className="btn btn-outline btn-xs btn-error px-5" disabled>
+              Cancle
+            </button>
+          )}
         </td>
         <td>
-          {price && !order.paid && (
+          {price && !paid && (
             <Link to={`/dashboard/payment/${_id}`}>
               <button className="btn btn-primary px-8 btn-outline btn-xs">
                 pay
               </button>
             </Link>
           )}
-          {price && order.paid && (
-            <button className="btn btn-primary px-8 btn-outline btn-xs">
-              paid
-            </button>
+          {price && paid && (
+            <span className=" flex items-center px-8">
+              <FontAwesomeIcon
+                className="text-green-400 mr-1"
+                icon={faCircleCheck}
+              />
+              <span className="text-xl">paid</span>
+            </span>
           )}
         </td>
       </tr>
