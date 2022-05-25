@@ -60,7 +60,7 @@ const CheckoutForm = ({ order }) => {
         },
       });
     if (intentError) {
-      setCardError(intentError.message);
+      setCardError(intentError?.message);
       setProcessing(false);
     } else {
       setCardError("");
