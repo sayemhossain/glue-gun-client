@@ -8,14 +8,18 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import Payment from "./pages/Dashboard/Payment";
-import Users from "./pages/Dashboard/User";
+import Users from "./pages/Dashboard/Users";
 import Home from "./pages/Home/Home";
 import Purchase from "./pages/Home/Purchase";
 import Login from "./pages/Login/Login";
+import RequireAdmin from "./pages/Login/RequireAdmin";
 import RequireAuth from "./pages/Login/RequireAuth";
 import Signup from "./pages/Login/Signup";
 import Footer from "./pages/Shared/Footer";
 import Navbar from "./pages/Shared/Navbar";
+import MakeAdmin from "./pages/Dashboard/MakeAdmin";
+import ManageAllOrder from "./pages/Dashboard/ManageAllOrder";
+import DashboardCover from "./pages/Dashboard/DashboardCover";
 
 function App() {
   return (
@@ -40,11 +44,24 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<DashboardCover />}></Route>
+          <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
-          <Route path="users" element={<Users></Users>}></Route>
+          <Route
+            path="manageorder"
+            element={<ManageAllOrder></ManageAllOrder>}
+          ></Route>
+          <Route path="alluser" element={<Users></Users>}></Route>
+          <Route
+            path="makeadmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin></MakeAdmin>
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>

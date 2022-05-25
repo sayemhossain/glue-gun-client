@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
-import UserRow from "./UserRow";
+import MakeAdminRow from "./MakeAdminRow";
 
-const Users = () => {
+const MakeAdmin = () => {
   const {
     data: users,
     isLoading,
@@ -22,7 +22,7 @@ const Users = () => {
   return (
     <div>
       <h2 className="text-xl text-center mb-5">All users: {users.length}</h2>
-      <div>
+      <div className="px-5">
         <div class="overflow-x-auto">
           <table class="table w-full">
             <thead>
@@ -30,17 +30,16 @@ const Users = () => {
                 <th></th>
                 <th>User Gmail address</th>
                 <th>Make Admin</th>
-                <th>Remove user</th>
               </tr>
             </thead>
             <tbody>
               {users?.map((user, index) => (
-                <UserRow
+                <MakeAdminRow
                   key={user._id}
                   user={user}
                   index={index}
                   refetch={refetch}
-                ></UserRow>
+                ></MakeAdminRow>
               ))}
             </tbody>
           </table>
@@ -50,4 +49,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default MakeAdmin;

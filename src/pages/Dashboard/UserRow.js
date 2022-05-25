@@ -1,44 +1,17 @@
 import React from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const UserRow = ({ user, index, refetch }) => {
-  const { email, role } = user;
-  const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => {
-        if (res.status === 403) {
-          toast.error("Failed to make admin");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data.modifiedCount) {
-          refetch();
-          toast.success(`Successfully make an admin`);
-        }
-      });
-  };
+  const { _id, email, phone, address } = user;
+
   return (
     <tr>
       <th>{index + 1}</th>
+      <td>{_id}</td>
       <td>{email}</td>
-      <td>
-        {role !== "admin" ? (
-          <button class="btn btn-primary btn-xs" onClick={makeAdmin}>
-            Make Admin
-          </button>
-        ) : (
-          <p className="text-sm">Already an admin</p>
-        )}
-      </td>
-      <td>
-        <button class="btn btn-xs">Remove User</button>
-      </td>
+      <td>{phone}</td>
+      <td>{address}</td>
+      <ToastContainer></ToastContainer>
     </tr>
   );
 };

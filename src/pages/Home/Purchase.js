@@ -192,7 +192,10 @@ const Purchase = () => {
                       style={{ fontFamily: "Macondo" }}
                     >
                       If you want to see your orders then click here <br></br>
-                      <Link to="/dashboard" className="text-blue-500 underline">
+                      <Link
+                        to="/dashboard/myorders"
+                        className="text-blue-500 underline"
+                      >
                         My orders
                       </Link>
                     </p>

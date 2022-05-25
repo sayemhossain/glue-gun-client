@@ -22,15 +22,15 @@ const OrderDetails = ({ order, index }) => {
     orderQuantity,
   } = order;
 
-  // const handleDeleteOrder = (orderId) => {
-  //   fetch(`http://localhost:5000/order/${orderId}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setDeletingOrder(null);
-  //     });
-  // };
+  const handleDeleteOrder = (orderId) => {
+    fetch(`http://localhost:5000/order/${orderId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDeletingOrder(null);
+      });
+  };
   return (
     <>
       <tr>
@@ -62,9 +62,9 @@ const OrderDetails = ({ order, index }) => {
         <td>
           {price && !paid && (
             <button
-              // onClick={() => {
-              //   handleDeleteOrder(orderId);
-              // }}
+              onClick={() => {
+                handleDeleteOrder(orderId);
+              }}
               className="btn btn-xs btn-error px-5"
             >
               Cancle
