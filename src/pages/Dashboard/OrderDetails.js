@@ -18,6 +18,7 @@ const OrderDetails = ({ order, index }) => {
     totalCost,
     user,
     paid,
+    transactionId,
     orderQuantity,
   } = order;
 
@@ -64,7 +65,7 @@ const OrderDetails = ({ order, index }) => {
               onClick={() => {
                 setDeletingOrder(order);
               }}
-              className="btn btn-outline btn-xs btn-error px-5"
+              className="btn btn-xs btn-error px-5"
             >
               Cancle
             </button>
@@ -78,18 +79,26 @@ const OrderDetails = ({ order, index }) => {
         <td>
           {price && !paid && (
             <Link to={`/dashboard/payment/${_id}`}>
-              <button className="btn btn-primary px-8 btn-outline btn-xs">
-                pay
-              </button>
+              <div className="flex justify-center">
+                <button className="btn btn-primary px-8 btn-xs">pay</button>
+              </div>
             </Link>
           )}
           {price && paid && (
-            <span className=" flex items-center px-8">
-              <FontAwesomeIcon
-                className="text-green-400 mr-1"
-                icon={faCircleCheck}
-              />
-              <span className="text-xl">paid</span>
+            <span className=" px-8">
+              <div className=" flex items-center justify-center ">
+                <FontAwesomeIcon
+                  className="text-green-400 mr-1"
+                  icon={faCircleCheck}
+                />
+                <span className="text-xl">paid</span>
+              </div>
+              <p className="text-sm text-center">
+                <small>
+                  Transaction Id: <br></br>
+                  <span className="text-red-600">{transactionId}</span>
+                </small>
+              </p>
             </span>
           )}
         </td>
