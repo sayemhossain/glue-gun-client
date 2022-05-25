@@ -33,6 +33,7 @@ const Purchase = () => {
       return toast.error("You have to fulfil our minimum orders requirment !");
     }
 
+    const totalCost = orderQuantity * price;
     const order = {
       orderId: _id,
       productName: name,
@@ -42,6 +43,7 @@ const Purchase = () => {
       price,
       available_quantity,
       orderQuantity,
+      totalCost,
       address,
       phone,
     };

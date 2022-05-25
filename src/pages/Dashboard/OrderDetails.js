@@ -14,11 +14,11 @@ const OrderDetails = ({ order, index }) => {
     customerNamer,
     address,
     phone,
+    totalCost,
     user,
     orderQuantity,
   } = order;
 
-  const totalCost = orderQuantity * price;
   const handleDeleteOrder = (orderId) => {
     fetch(`http://localhost:5000/order/${orderId}`, {
       method: "DELETE",
@@ -67,13 +67,18 @@ const OrderDetails = ({ order, index }) => {
           </button>
         </td>
         <td>
-          {
+          {price && !order.paid && (
             <Link to={`/dashboard/payment/${orderId}`}>
               <button className="btn btn-primary px-8 btn-outline btn-xs">
                 pay
               </button>
             </Link>
-          }
+          )}
+          {price && order.paid && (
+            <button className="btn btn-primary px-8 btn-outline btn-xs">
+              paid
+            </button>
+          )}
         </td>
       </tr>
     </>
