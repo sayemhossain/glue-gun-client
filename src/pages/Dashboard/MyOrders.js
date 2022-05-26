@@ -35,29 +35,31 @@ const MyOrders = () => {
           </p>
         </div>
       </div>
-      <div class="overflow-x-auto mx-auto md:w-11/12 border-2 rounded-lg shadow-xl">
-        <table class="table w-full" style={{ fontFamily: "Macondo" }}>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Product Details</th>
-              <th>Customer Deatils</th>
-              <th>Order Quantity</th>
-              <th>Total cost</th>
-              <th>Order Cancle</th>
-              <th>payment status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders?.map((order, index) => (
-              <OrderDetails
-                key={order._id}
-                order={order}
-                index={index}
-              ></OrderDetails>
-            ))}
-          </tbody>
-        </table>
+      <div className="px-2">
+        <div class="overflow-x-auto mx-auto md:w-11/12 border-2 rounded-lg shadow-xl">
+          <table class="table w-full" style={{ fontFamily: "Macondo" }}>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Product Details</th>
+                <th>Customer Deatils</th>
+                <th>Order Quantity</th>
+                <th>Total cost</th>
+                <th>Order Cancle</th>
+                <th>payment status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders?.map((order, index) => (
+                <OrderDetails
+                  key={order._id}
+                  order={order}
+                  index={index}
+                ></OrderDetails>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -31,12 +31,14 @@ const MakeAdminRow = ({ user, index, refetch }) => {
       <td>{email}</td>
       <td>
         {role !== "admin" ? (
-          <button class="btn btn-primary btn-xs" onClick={makeAdmin}>
-            <FontAwesomeIcon
-              className="mr-1 text-base-100"
-              icon={faUserCheck}
-            />
-            Make Admin
+          <button class="btn btn-primary btn-xs " onClick={makeAdmin}>
+            <p>
+              <FontAwesomeIcon
+                className="mr-1 text-base-100"
+                icon={faUserCheck}
+              />
+              <span> Make Admin</span>
+            </p>
           </button>
         ) : (
           <p className="text-sm">Already an admin</p>
