@@ -6,7 +6,7 @@ const HomeReviewContainer = ({ review }) => {
   const { name, ratting, description } = review;
   return (
     <div className="text-center mt-10">
-      <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
           <FontAwesomeIcon className="text-7xl" icon={faUserTie} />
           <h2 class="text-xl font-bold" style={{ fontFamily: "Macondo" }}>
