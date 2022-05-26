@@ -10,7 +10,8 @@ const AddTool = () => {
     const available_quantity = e.target.available_quantity.value;
     const minimum_order_quantity = e.target.minimum_order_quantity.value;
     const img = e.target.img.value;
-    const description = e.target.description.value;
+    let description = e.target.description.value;
+    description = [description];
 
     const tool = {
       name,
@@ -21,7 +22,7 @@ const AddTool = () => {
       price,
     };
 
-    fetch(``, {
+    fetch(`http://localhost:5000/tools`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -114,7 +115,9 @@ const AddTool = () => {
                 ></textarea>
               </div>
               <div class="form-control mt-6">
-                <button class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">
+                  Update
+                </button>
               </div>
             </form>
           </div>
