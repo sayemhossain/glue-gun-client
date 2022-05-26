@@ -22,6 +22,7 @@ import DashboardCover from "./pages/Dashboard/DashboardCover";
 import NotFound from "./NotFound/NotFound";
 import Reviews from "./pages/Dashboard/Reviews";
 import AddTool from "./pages/Dashboard/AddTool";
+import ManageTools from "./pages/Dashboard/ManageTools";
 
 function App() {
   return (
@@ -57,6 +58,10 @@ function App() {
           ></Route>
           <Route path="alluser" element={<Users></Users>}></Route>
           <Route path="addtool" element={<AddTool></AddTool>}></Route>
+          <Route
+            path="managetools"
+            element={<ManageTools></ManageTools>}
+          ></Route>
           <Route
             path="makeadmin"
             element={
