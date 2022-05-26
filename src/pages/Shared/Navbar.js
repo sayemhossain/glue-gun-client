@@ -52,6 +52,9 @@ const Navbar = () => {
                 <Link to="/contact">Contact</Link>
               </li>
               <li>
+                <Link to="/portfolio">Portfolio</Link>
+              </li>
+              <li>
                 {user && (
                   <>
                     <p className="block md:hidden px-5 uppercase border-t-2">
@@ -90,6 +93,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/portfolio">Portfolio</Link>
             </li>
           </ul>
         </div>

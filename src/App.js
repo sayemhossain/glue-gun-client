@@ -23,6 +23,7 @@ import NotFound from "./NotFound/NotFound";
 import Reviews from "./pages/Dashboard/Reviews";
 import AddTool from "./pages/Dashboard/AddTool";
 import ManageTools from "./pages/Dashboard/ManageTools";
+import MyProtfolio from "./pages/My Portfolio/MyProtfolio";
 
 function App() {
   return (
@@ -74,6 +75,7 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/contact" element={<ContactUs></ContactUs>}></Route>
+        <Route path="/portfolio" element={<MyProtfolio></MyProtfolio>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

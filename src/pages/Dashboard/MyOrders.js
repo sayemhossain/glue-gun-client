@@ -9,9 +9,12 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/order?user=${user.email}`, {
-        method: "GET",
-      })
+      fetch(
+        `https://immense-waters-78864.herokuapp.com/order?user=${user.email}`,
+        {
+          method: "GET",
+        }
+      )
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }

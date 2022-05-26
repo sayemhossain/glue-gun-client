@@ -49,7 +49,7 @@ const Purchase = () => {
     };
     console.log(order);
     const newQuantity = available_quantity - orderQuantity;
-    fetch(`http://localhost:5000/order`, {
+    fetch(`https://immense-waters-78864.herokuapp.com/order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,7 +58,7 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        const url = `http://localhost:5000/tools/${_id}`;
+        const url = `https://immense-waters-78864.herokuapp.com/tools/${_id}`;
         fetch(url, {
           method: "PUT",
           headers: {
