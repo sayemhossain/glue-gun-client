@@ -5,6 +5,9 @@ import useTools from "../../hooks/useTools";
 
 const ManageTools = () => {
   const [tools] = useTools();
+  const handleDeleteTool = () => {
+    console.log("clicked");
+  };
   return (
     <div>
       <div>
@@ -12,7 +15,7 @@ const ManageTools = () => {
           className="text-xl md:px-20 mt-5 text-center "
           style={{ fontFamily: "Teko" }}
         >
-          All order : {tools.length}
+          All Tool : {tools.length}
         </h3>
       </div>
       <hr className="mb-5" />
@@ -49,7 +52,9 @@ const ManageTools = () => {
                   <td>
                     {tool.description.map((des) => (
                       <ul>
-                        <li>-{des}</li>
+                        <li>
+                          -{des.length > 80 ? des.slice(0, 40) + "..." : des}
+                        </li>
                       </ul>
                     ))}
                   </td>
@@ -57,7 +62,10 @@ const ManageTools = () => {
                   <td>{tool.minimum_order_quantity}</td>
                   <td>${tool.price}</td>
                   <td>
-                    <button className="btn btn-error btn-xs text-base-100">
+                    <button
+                      onClick={handleDeleteTool}
+                      className="btn btn-error btn-xs text-base-100"
+                    >
                       <FontAwesomeIcon className=" mr-1" icon={faTrashCan} />{" "}
                       Delete
                     </button>

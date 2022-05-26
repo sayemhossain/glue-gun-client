@@ -45,7 +45,7 @@ const AddTool = () => {
         </h3>
       </div>
       <hr className="mb-5" />
-      <div className="flex justify-center">
+      <div className="flex justify-center my-10 px-5">
         <div className="card shadow-2xl bg-base-100 w-full max-w-sm">
           <div className="card-body">
             <form action="" onSubmit={handleAddTool}>
@@ -116,7 +116,7 @@ const AddTool = () => {
               </div>
               <div class="form-control mt-6">
                 <button type="submit" class="btn btn-primary">
-                  Update
+                  Add tool
                 </button>
               </div>
             </form>
