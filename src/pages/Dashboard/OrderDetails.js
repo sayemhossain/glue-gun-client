@@ -2,6 +2,7 @@ import { faCircleCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import DeleteConfirmOrder from "./DeleteConfirmOrder";
 
 const OrderDetails = ({ order, index }) => {
@@ -22,13 +23,13 @@ const OrderDetails = ({ order, index }) => {
     orderQuantity,
   } = order;
 
-  const handleDeleteOrder = (orderId) => {
-    fetch(`http://localhost:5000/order/${orderId}`, {
+  const handleDeleteOrder = () => {
+    fetch(`http://localhost:5000/order/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        setDeletingOrder(null);
+        toast.success("Delete successfull.");
       });
   };
   return (
@@ -62,9 +63,7 @@ const OrderDetails = ({ order, index }) => {
         <td>
           {price && !paid && (
             <button
-              onClick={() => {
-                handleDeleteOrder(orderId);
-              }}
+              onClick={handleDeleteOrder}
               className="btn btn-xs btn-error px-5"
             >
               Cancle
@@ -103,6 +102,7 @@ const OrderDetails = ({ order, index }) => {
           )}
         </td>
       </tr>
+      <ToastContainer></ToastContainer>
     </>
   );
 };

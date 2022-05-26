@@ -7,8 +7,10 @@ const AddTool = () => {
 
     const name = e.target.name.value;
     const price = e.target.price.value;
-    const available_quantity = e.target.available_quantity.value;
-    const minimum_order_quantity = e.target.minimum_order_quantity.value;
+    const available_quantity = parseInt(e.target.available_quantity.value);
+    const minimum_order_quantity = parseInt(
+      e.target.minimum_order_quantity.value
+    );
     const img = e.target.img.value;
     let description = e.target.description.value;
     description = [description];

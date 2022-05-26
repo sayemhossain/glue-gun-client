@@ -1,13 +1,10 @@
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import useTools from "../../hooks/useTools";
+import ManageToolsRow from "./ManageToolsRow";
 
 const ManageTools = () => {
   const [tools] = useTools();
-  const handleDeleteTool = () => {
-    console.log("clicked");
-  };
+
   return (
     <div>
       <div>
@@ -36,41 +33,11 @@ const ManageTools = () => {
             </thead>
             <tbody>
               {tools?.map((tool, index) => (
-                <tr>
-                  <th>{index + 1}</th>
-                  <td>
-                    <div class="avatar">
-                      <div class="mask mask-squircle w-12 h-12">
-                        <img
-                          src={tool.img}
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td>{tool.name}</td>
-                  <td>
-                    {tool.description.map((des) => (
-                      <ul>
-                        <li>
-                          -{des.length > 80 ? des.slice(0, 40) + "..." : des}
-                        </li>
-                      </ul>
-                    ))}
-                  </td>
-                  <td>{tool.available_quantity}</td>
-                  <td>{tool.minimum_order_quantity}</td>
-                  <td>${tool.price}</td>
-                  <td>
-                    <button
-                      onClick={handleDeleteTool}
-                      className="btn btn-error btn-xs text-base-100"
-                    >
-                      <FontAwesomeIcon className=" mr-1" icon={faTrashCan} />{" "}
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+                <ManageToolsRow
+                  key={tool._id}
+                  index={index}
+                  tool={tool}
+                ></ManageToolsRow>
               ))}
             </tbody>
           </table>
