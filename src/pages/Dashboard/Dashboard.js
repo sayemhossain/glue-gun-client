@@ -73,7 +73,7 @@ const Dashboard = () => {
                   <Link className=" uppercase" to="/dashboard/myorders">
                     My Orders
                   </Link>
-                  <Link className=" uppercase" to="/dashboard/addreview">
+                  <Link className=" uppercase" to="/dashboard/reviews">
                     Add A Review
                   </Link>
                 </>

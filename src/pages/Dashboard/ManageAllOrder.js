@@ -24,7 +24,15 @@ const ManageAllOrder = () => {
   console.log(orders);
   return (
     <div className="pb-10">
-      <h2 className="text-xl text-center mb-5">All users: {orders.length}</h2>
+      <div>
+        <h3
+          className="text-xl md:px-20 mt-5 text-center "
+          style={{ fontFamily: "Teko" }}
+        >
+          All order : {orders.length}
+        </h3>
+      </div>
+      <hr className="mb-5" />
       <div className="px-5">
         <div class="overflow-x-auto">
           <table class="table w-full">

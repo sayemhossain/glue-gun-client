@@ -42,7 +42,7 @@ const MyProfile = () => {
     <div className="">
       <div>
         <h3
-          className="text-2xl md:px-20 mt-5 text-center "
+          className="text-xl md:px-20 mt-5 text-center "
           style={{ fontFamily: "Teko" }}
         >
           User Profile

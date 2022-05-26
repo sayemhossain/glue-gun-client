@@ -3,7 +3,6 @@ import "./App.css";
 import About from "./pages/About/About";
 import Blogs from "./pages/Blogs/Blogs";
 import ContactUs from "./pages/ContactUs/ContactUs";
-import AddReview from "./pages/Dashboard/AddReview";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
@@ -20,6 +19,9 @@ import Navbar from "./pages/Shared/Navbar";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin";
 import ManageAllOrder from "./pages/Dashboard/ManageAllOrder";
 import DashboardCover from "./pages/Dashboard/DashboardCover";
+import NotFound from "./NotFound/NotFound";
+import Reviews from "./pages/Dashboard/Reviews";
+import AddTool from "./pages/Dashboard/AddTool";
 
 function App() {
   return (
@@ -46,7 +48,7 @@ function App() {
         >
           <Route index element={<DashboardCover />}></Route>
           <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
-          <Route path="addreview" element={<AddReview></AddReview>}></Route>
+          <Route path="reviews" element={<Reviews></Reviews>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route
@@ -54,6 +56,7 @@ function App() {
             element={<ManageAllOrder></ManageAllOrder>}
           ></Route>
           <Route path="alluser" element={<Users></Users>}></Route>
+          <Route path="addtool" element={<AddTool></AddTool>}></Route>
           <Route
             path="makeadmin"
             element={
@@ -68,6 +71,7 @@ function App() {
         <Route path="/contact" element={<ContactUs></ContactUs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
