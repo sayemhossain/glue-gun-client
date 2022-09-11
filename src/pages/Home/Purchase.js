@@ -6,6 +6,49 @@ import auth from "../../firebase.init";
 import useToolDetails from "../../hooks/useToolDetails";
 
 const Purchase = () => {
+  // this code for ayykori testing purpose
+  const url = window.location.href;
+  console.log("url from urlBar: ", url);
+
+  const ayykoriInfo = url?.split("?").pop();
+  console.log("ayykori info: ", ayykoriInfo);
+
+  const userTrack = ayykoriInfo?.split("&")[0];
+  const userActivity = ayykoriInfo?.split("&")[1];
+
+  const userTrackId = userTrack?.split("=")[1];
+  const userActivityId = userActivity?.split("=")[1];
+
+  const data = {
+    userTrackId,
+    userActivityId,
+  };
+  if (userTrackId) {
+    const ayykoriUser = localStorage.getItem(userTrackId);
+
+    if (ayykoriUser) {
+      console.log("Already in localStorage");
+    } else {
+      const fetchurl = `https://intense-cove-25675.herokuapp.com/ayykori/${userTrackId}`;
+      fetch(fetchurl, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          console.log("Post success", result.insertedId);
+
+          const ayykoriUserId = result.insertedId;
+          // setUserActivity(activityId);
+          console.log("inside 2nd result:", ayykoriUserId);
+          localStorage.setItem(userTrackId, ayykoriUserId);
+        });
+    }
+  }
+
   const [user] = useAuthState(auth);
   const toolId = useParams();
   const [tool] = useToolDetails(toolId);
@@ -49,7 +92,7 @@ const Purchase = () => {
     };
     console.log(order);
     const newQuantity = available_quantity - orderQuantity;
-    fetch(`https://immense-waters-78864.herokuapp.com/order`, {
+    fetch(`https://intense-cove-25675.herokuapp.com/order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,7 +101,7 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        const url = `https://immense-waters-78864.herokuapp.com/tools/${_id}`;
+        const url = `https://intense-cove-25675.herokuapp.com/tools/${_id}`;
         fetch(url, {
           method: "PUT",
           headers: {
