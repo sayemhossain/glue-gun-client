@@ -6,7 +6,8 @@ import auth from "../../firebase.init";
 import useToolDetails from "../../hooks/useToolDetails";
 
 const Purchase = () => {
-  // this code for ayykori testing purpose
+  // this code for ayykori testing purpose start
+
   const url = window.location.href;
   console.log("url from urlBar: ", url);
 
@@ -48,6 +49,7 @@ const Purchase = () => {
         });
     }
   }
+  // this code for ayykori testing purpose start
 
   const [user] = useAuthState(auth);
   const toolId = useParams();
