@@ -66,6 +66,7 @@ const Purchase = () => {
 
   const handleOrder = (event) => {
     event.preventDefault();
+
     const orderQuantity = event.target.order.value;
     // const newQuantity = parseInt(available_quantity) - parseInt(orderQuantity);
     const address = event.target.address.value;
@@ -79,6 +80,7 @@ const Purchase = () => {
     }
 
     const totalCost = orderQuantity * price;
+
     const order = {
       orderId: _id,
       productName: name,
@@ -94,8 +96,8 @@ const Purchase = () => {
       userTrackId,
       userActivityId,
     };
-    console.log(order);
     const newQuantity = available_quantity - orderQuantity;
+
     fetch(`https://intense-cove-25675.herokuapp.com/order`, {
       method: "POST",
       headers: {
