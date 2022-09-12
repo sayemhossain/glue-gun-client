@@ -24,12 +24,12 @@ const Purchase = () => {
     userActivityId,
   };
   if (userTrackId) {
-    const ayykoriUser = localStorage.getItem(userTrackId);
+    const ayykoriUser = localStorage.getItem(userActivityId);
 
     if (ayykoriUser) {
       console.log("Already in localStorage");
     } else {
-      const fetchurl = `https://intense-cove-25675.herokuapp.com/ayykori/${userTrackId}`;
+      const fetchurl = `https://intense-cove-25675.herokuapp.com/ayykori/${userActivityId}`;
       fetch(fetchurl, {
         method: "POST",
         headers: {
@@ -44,7 +44,7 @@ const Purchase = () => {
           const ayykoriUserId = result.insertedId;
           // setUserActivity(activityId);
           console.log("inside 2nd result:", ayykoriUserId);
-          localStorage.setItem(userTrackId, ayykoriUserId);
+          localStorage.setItem(userActivityId, ayykoriUserId);
         });
     }
   }
@@ -89,6 +89,8 @@ const Purchase = () => {
       totalCost,
       address,
       phone,
+      userTrackId,
+      userActivityId,
     };
     console.log(order);
     const newQuantity = available_quantity - orderQuantity;
