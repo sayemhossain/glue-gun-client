@@ -28,7 +28,6 @@ const Purchase = () => {
     const ayykoriUser = localStorage.getItem(userActivityId);
 
     if (ayykoriUser) {
-      console.log("Already in localStorage");
     } else {
       const fetchurl = `https://intense-cove-25675.herokuapp.com/ayykori/${userActivityId}`;
       fetch(fetchurl, {
