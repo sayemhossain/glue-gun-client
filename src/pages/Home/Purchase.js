@@ -26,7 +26,7 @@ const Purchase = () => {
   if (userActivityId) {
     if (affUserInfo) {
     } else {
-      const fetchurl = `http://localhost:5000/affsite/${userActivityId}`;
+      const fetchurl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
       fetch(fetchurl, {
         method: "POST",
         headers: {
