@@ -6,16 +6,14 @@ import auth from "../../firebase.init";
 import useToolDetails from "../../hooks/useToolDetails";
 
 const Purchase = () => {
-  // this code for ayykori testing purpose start
-
+  // Here we are catch the link from url
   const url = window.location.href;
-  console.log("url from urlBar: ", url);
 
-  const ayykoriInfo = url?.split("?").pop();
-  console.log("ayykori info: ", ayykoriInfo);
+  // This is for finding the user info (to see whose link has been clicked)
+  const affInfo = url?.split("?").pop();
 
-  const userTrack = ayykoriInfo?.split("&")[0];
-  const userActivity = ayykoriInfo?.split("&")[1];
+  const userTrack = affInfo?.split("&")[0];
+  const userActivity = affInfo?.split("&")[1];
 
   const userTrackId = userTrack?.split("=")[1];
   const userActivityId = userActivity?.split("=")[1];
@@ -24,12 +22,11 @@ const Purchase = () => {
     userTrackId,
     userActivityId,
   };
-  if (userTrackId) {
-    const ayykoriUser = localStorage.getItem(userActivityId);
-
-    if (ayykoriUser) {
+  const affUserInfo = localStorage.getItem(userActivityId);
+  if (userActivityId) {
+    if (affUserInfo) {
     } else {
-      const fetchurl = `https://intense-cove-25675.herokuapp.com/ayykori/${userActivityId}`;
+      const fetchurl = `http://localhost:5000/affsite/${userActivityId}`;
       fetch(fetchurl, {
         method: "POST",
         headers: {
@@ -39,16 +36,11 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((result) => {
-          console.log("Post success", result.insertedId);
-
-          const ayykoriUserId = result.insertedId;
-          // setUserActivity(activityId);
-          console.log("inside 2nd result:", ayykoriUserId);
-          localStorage.setItem(userActivityId, ayykoriUserId);
+          const affUsersDBId = result.insertedId;
+          localStorage.setItem(userActivityId, affUsersDBId);
         });
     }
   }
-  // this code for ayykori testing purpose start
 
   const [user] = useAuthState(auth);
   const toolId = useParams();
@@ -77,47 +69,85 @@ const Purchase = () => {
     if (orderQuantity < minimum_order_quantity) {
       return toast.error("You have to fulfil our minimum orders requirment !");
     }
-
     const totalCost = orderQuantity * price;
 
-    const order = {
-      orderId: _id,
-      productName: name,
-      customerNamer: user?.displayName,
-      user: user.email,
-      img,
-      price,
-      available_quantity,
-      orderQuantity,
-      totalCost,
-      address,
-      phone,
-      userTrackId,
-      userActivityId,
-    };
-    const newQuantity = available_quantity - orderQuantity;
+    if (affUserInfo) {
+      const order = {
+        orderId: _id,
+        productName: name,
+        customerNamer: user?.displayName,
+        user: user.email,
+        img,
+        price,
+        available_quantity,
+        orderQuantity,
+        totalCost,
+        address,
+        phone,
+        userTrackId,
+        userActivityId,
+      };
+      const newQuantity = available_quantity - orderQuantity;
 
-    fetch(`https://intense-cove-25675.herokuapp.com/order`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(order),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const url = `https://intense-cove-25675.herokuapp.com/tools/${_id}`;
-        fetch(url, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ newQuantity }),
-        })
-          .then((res) => res.json())
-          .then((data) => toast.success("Your order is Pending!"));
-      });
-    event.target.reset();
+      fetch(`https://intense-cove-25675.herokuapp.com/order`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(order),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const url = `https://intense-cove-25675.herokuapp.com/tools/${_id}`;
+          fetch(url, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ newQuantity }),
+          })
+            .then((res) => res.json())
+            .then((data) => toast.success("Your order is Pending!"));
+        });
+      event.target.reset();
+    } else {
+      const order = {
+        orderId: _id,
+        productName: name,
+        customerNamer: user?.displayName,
+        user: user.email,
+        img,
+        price,
+        available_quantity,
+        orderQuantity,
+        totalCost,
+        address,
+        phone,
+      };
+      const newQuantity = available_quantity - orderQuantity;
+
+      fetch(`https://intense-cove-25675.herokuapp.com/order`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(order),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const url = `https://intense-cove-25675.herokuapp.com/tools/${_id}`;
+          fetch(url, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ newQuantity }),
+          })
+            .then((res) => res.json())
+            .then((data) => toast.success("Your order is Pending!"));
+        });
+      event.target.reset();
+    }
   };
 
   return (
