@@ -62,6 +62,7 @@ const Dashboard = () => {
             <li>
               {admin ? (
                 <>
+                  <Link to="/dashboard/ayykoriorders">AyyKori Orders</Link>
                   <Link to="/dashboard/addtool">Add New Tool</Link>
                   <Link to="/dashboard/managetools">Manage Tools</Link>
                   <Link to="/dashboard/manageorder">Manage All orders</Link>

@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from "react";
+import AyyKoriOrdersContainer from "./AyyKoriOrdersContainer";
+
+const AyyKoriOrders = () => {
+  const [affOrders, setAffOrders] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/orders/userTrackId`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => setAffOrders(data));
+  }, []);
+  console.log(affOrders);
+  return (
+    <div className="">
+      <div>
+        <h3
+          className="text-xl md:px-20 mt-5 text-center "
+          style={{ fontFamily: "Teko" }}
+        >
+          Orders From AyyKori
+        </h3>
+      </div>
+      <hr />
+      <div className="py-10 md:px-20">
+        <div className="overflow-x-auto">
+          <table className="table table-compact w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>User Email</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Order Quantity</th>
+                <th>Total Cost</th>
+                <th>Phone</th>
+                <th>User Track Id</th>
+                <th>User Activity Id</th>
+              </tr>
+            </thead>
+            <tbody>
+              {affOrders?.map((affOrder, index) => (
+                <AyyKoriOrdersContainer
+                  key={affOrder._id}
+                  affOrder={affOrder}
+                  index={index}
+                ></AyyKoriOrdersContainer>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AyyKoriOrders;

@@ -24,6 +24,7 @@ import Reviews from "./pages/Dashboard/Reviews";
 import AddTool from "./pages/Dashboard/AddTool";
 import ManageTools from "./pages/Dashboard/ManageTools";
 import MyProtfolio from "./pages/My Portfolio/MyProtfolio";
+import AyyKoriOrders from "./pages/Dashboard/AyyKoriOrders/AyyKoriOrders";
 
 function App() {
   return (
@@ -52,6 +53,10 @@ function App() {
           <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
           <Route path="reviews" element={<Reviews></Reviews>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+          <Route
+            path="ayykoriorders"
+            element={<AyyKoriOrders></AyyKoriOrders>}
+          ></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route
             path="manageorder"
