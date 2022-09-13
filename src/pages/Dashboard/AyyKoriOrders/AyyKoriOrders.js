@@ -19,7 +19,7 @@ const AyyKoriOrders = () => {
           className="text-xl md:px-20 mt-5 text-center "
           style={{ fontFamily: "Teko" }}
         >
-          Orders From AyyKori
+          Orders From AyyKor
         </h3>
       </div>
       <hr />
