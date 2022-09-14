@@ -24,11 +24,16 @@ const AyyKoriOrders = () => {
       </div>
       <hr />
       <div className="py-10 md:px-20">
+        <div className="mb-2">
+          <p className="bg-primary p-1 text-white font-semibold rounded text-center">
+            Total Orders: {affOrders.length}
+          </p>
+        </div>
         <div className="overflow-x-auto">
-          <table className="table table-compact w-full">
+          <table className="table table-compact  w-full">
             <thead>
               <tr>
-                <th>No.</th>
+                <th>No</th>
                 <th>User Email</th>
                 <th>Product Name</th>
                 <th>Price</th>
