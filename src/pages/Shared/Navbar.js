@@ -51,9 +51,7 @@ const Navbar = () => {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
-              <li>
-                <Link to="/portfolio">Portfolio</Link>
-              </li>
+
               <li>
                 {user && (
                   <>
@@ -93,9 +91,6 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/portfolio">Portfolio</Link>
             </li>
           </ul>
         </div>
