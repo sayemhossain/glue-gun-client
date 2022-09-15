@@ -1,4 +1,6 @@
 import React from "react";
+import { faBangladeshiTakaSign } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AyyKoriOrdersContainer = ({ affOrder, index }) => {
   const {
@@ -17,7 +19,9 @@ const AyyKoriOrdersContainer = ({ affOrder, index }) => {
       <th>{index + 1}</th>
       <td>{user}</td>
       <td>{productName}</td>
-      <td>{price} tk</td>
+      <td>
+        {price} <FontAwesomeIcon icon={faBangladeshiTakaSign} />
+      </td>
       <td>{orderQuantity}</td>
       <td>{totalCost} tk</td>
       <td>{phone}</td>
