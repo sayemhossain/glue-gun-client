@@ -22,10 +22,23 @@ const Purchase = () => {
     userTrackId,
     userActivityId,
   };
+
   const affUserInfo = localStorage.getItem(userActivityId);
   if (userActivityId) {
     if (affUserInfo) {
     } else {
+      // this post api for ayykori start
+      fetch(`http://localhost:5000/clientuseractivity/${userActivityId}`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+      // this post api for ayykori end
+
       const fetchurl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
       fetch(fetchurl, {
         method: "POST",
