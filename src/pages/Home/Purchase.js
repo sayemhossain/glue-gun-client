@@ -27,7 +27,7 @@ const Purchase = () => {
   if (userActivityId) {
     if (affUserInfo) {
     } else {
-      // this post api for ayykori start
+      // this post api for ayykori star
       fetch(`http://localhost:5000/clientuseractivity/${userActivityId}`, {
         method: "POST",
         headers: {
