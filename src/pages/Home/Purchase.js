@@ -24,11 +24,12 @@ const Purchase = () => {
   };
 
   const affUserInfo = localStorage.getItem(userActivityId);
+
   if (userActivityId) {
     if (affUserInfo) {
     } else {
       // this post api for ayykori start
-      fetch(`http://localhost:5000/clientuseractivity/${userActivityId}`, {
+      fetch(`https://api.ayykori.com/clientuseractivity/${userActivityId}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -103,7 +104,7 @@ const Purchase = () => {
       const newQuantity = available_quantity - orderQuantity;
 
       // this post api for ayykori start
-      fetch(`http://localhost:5000/clientorders`, {
+      fetch(`https://api.ayykori.com/clientorders`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

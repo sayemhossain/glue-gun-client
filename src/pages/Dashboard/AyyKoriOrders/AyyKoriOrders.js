@@ -11,7 +11,6 @@ const AyyKoriOrders = () => {
       .then((res) => res.json())
       .then((data) => setAffOrders(data));
   }, []);
-  console.log(affOrders);
   return (
     <div className="">
       <div>
@@ -19,7 +18,7 @@ const AyyKoriOrders = () => {
           className="text-xl md:px-20 mt-5 text-center "
           style={{ fontFamily: "Teko" }}
         >
-          Orders From AyyKori
+          Orders From MK
         </h3>
       </div>
       <hr />
