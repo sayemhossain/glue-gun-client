@@ -191,6 +191,8 @@ const Purchase = () => {
     localStorage.removeItem("affUserActivityId");
     localStorage.removeItem("affUserTrackId");
   }, 60 * 1000);
+  // 604800 * 1000(7day)
+  // 1296000 * 1000(15day)
 
   return (
     <section>
