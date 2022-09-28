@@ -23,37 +23,38 @@ const Purchase = () => {
     userActivityId,
   };
 
-  const affUserInfo = localStorage.getItem(userActivityId);
+  const affUserTrackId = localStorage.getItem("affUserTrackId");
+  const affUserActivityId = localStorage.getItem("affUserActivityId");
+  // console.log(affUserTrackId, affUserActivityId);
 
   if (userActivityId) {
-    if (affUserInfo) {
-    } else {
-      // this post api for ayykori start
-      fetch(`https://api.ayykori.com/clientuseractivity/${userActivityId}`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-      // this post api for ayykori end
+    // this post api for ayykori start
+    // fetch(`http://localhost:5000/clientuseractivity/${userActivityId}`, {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+    // this post api for ayykori end
 
-      const fetchurl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
-      fetch(fetchurl, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          const affUsersDBId = result.insertedId;
-          localStorage.setItem(userActivityId, affUsersDBId);
-        });
-    }
+    const fetchurl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
+
+    fetch(fetchurl, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        // const affUsersDBId = result.insertedId;
+        localStorage.setItem("affUserTrackId", userTrackId);
+        localStorage.setItem("affUserActivityId", userActivityId);
+      });
   }
 
   const [user] = useAuthState(auth);
@@ -85,7 +86,16 @@ const Purchase = () => {
     }
     const totalCost = orderQuantity * price;
 
-    if (affUserInfo) {
+    if (affUserTrackId && affUserActivityId) {
+      const affOrder = {
+        orderId: _id,
+        productName: name,
+        price,
+        orderQuantity,
+        totalCost,
+        affUserTrackId,
+        affUserActivityId,
+      };
       const order = {
         orderId: _id,
         productName: name,
@@ -98,18 +108,18 @@ const Purchase = () => {
         totalCost,
         address,
         phone,
-        userTrackId,
-        userActivityId,
+        affUserTrackId,
+        affUserActivityId,
       };
       const newQuantity = available_quantity - orderQuantity;
 
       // this post api for ayykori start
-      fetch(`https://api.ayykori.com/clientorders`, {
+      fetch(`http://localhost:5000/clientorders`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(order),
+        body: JSON.stringify(affOrder),
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
@@ -175,6 +185,12 @@ const Purchase = () => {
       event.target.reset();
     }
   };
+
+  // this setTimeOut for expiring the token
+  setTimeout(() => {
+    localStorage.removeItem("affUserActivityId");
+    localStorage.removeItem("affUserTrackId");
+  }, 60 * 1000);
 
   return (
     <section>

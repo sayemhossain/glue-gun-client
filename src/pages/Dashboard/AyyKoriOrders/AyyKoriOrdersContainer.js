@@ -10,7 +10,7 @@ const AyyKoriOrdersContainer = ({ affOrder, index }) => {
     orderQuantity,
     totalCost,
     phone,
-    userTrackId,
+    affUserInfo,
     userActivityId,
   } = affOrder;
 
@@ -29,7 +29,7 @@ const AyyKoriOrdersContainer = ({ affOrder, index }) => {
         {totalCost}
       </td>
       <td>{phone}</td>
-      <td>{userTrackId}</td>
+      <td>{affUserInfo}</td>
       <td>{userActivityId}</td>
     </tr>
   );
