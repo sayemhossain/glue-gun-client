@@ -25,7 +25,6 @@ const Purchase = () => {
 
   const affUserTrackId = localStorage.getItem("affUserTrackId");
   const affUserActivityId = localStorage.getItem("affUserActivityId");
-  // console.log(affUserTrackId, affUserActivityId);
 
   if (userActivityId) {
     // this post api for ayykori start
@@ -190,7 +189,7 @@ const Purchase = () => {
   setTimeout(() => {
     localStorage.removeItem("affUserActivityId");
     localStorage.removeItem("affUserTrackId");
-  }, 60 * 1000);
+  }, 604800 * 1000);
   // 604800 * 1000(7day)
   // 1296000 * 1000(15day)
 
