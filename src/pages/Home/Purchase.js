@@ -244,7 +244,7 @@ const Purchase = () => {
                     <form action="" onSubmit={handleOrder}>
                       <div class="form-control">
                         <label class="label">
-                          <span class="label-text">Name</span>
+                          <span class="label-text">Nam</span>
                         </label>
                         <input
                           type="text"
