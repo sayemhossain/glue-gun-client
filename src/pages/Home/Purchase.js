@@ -220,7 +220,7 @@ const Purchase = () => {
             </p>
             <div className="mb-5">
               <p>
-                Available Quantity :{" "}
+                Available Quantit :{" "}
                 <span className="text-red-500 font-bold">
                   {available_quantity}
                 </span>
