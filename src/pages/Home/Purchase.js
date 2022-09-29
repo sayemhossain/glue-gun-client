@@ -213,7 +213,7 @@ const Purchase = () => {
               ))}
             </p>
             <p>
-              Per piece price:{" "}
+              Pe piece price:{" "}
               <span className="text-gray-600 font-bold border-4 border-gray-50 rounded-2xl">
                 ${price}
               </span>
