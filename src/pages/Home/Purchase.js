@@ -239,7 +239,7 @@ const Purchase = () => {
                 <div class="card-body">
                   <div>
                     <h2 class="text-center" style={{ fontFamily: "Koulen" }}>
-                      <span className="text-2xl"> Order Glue Gun!</span>
+                      <span className="text-2xl"> Orde Glue Gun!</span>
                     </h2>
                     <form action="" onSubmit={handleOrder}>
                       <div class="form-control">
