@@ -185,7 +185,7 @@ const Purchase = () => {
     }
   };
 
-  // this setTimeOut for expiring the toke
+  // this setTimeOut for expiring the token
   setTimeout(() => {
     localStorage.removeItem("affUserActivityId");
     localStorage.removeItem("affUserTrackId");
