@@ -33,7 +33,7 @@ const AyyKoriOrders = () => {
             <thead>
               <tr>
                 <th>No.</th>
-                <th>User Email</th>
+                <th>User Emai</th>
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Order Quantity</th>
