@@ -11,6 +11,7 @@ const AyyKoriOrders = () => {
       .then((res) => res.json())
       .then((data) => setAffOrders(data));
   }, []);
+  console.log(affOrders);
   return (
     <div className="">
       <div>
