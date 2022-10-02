@@ -23,6 +23,7 @@ const Purchase = () => {
     userActivityId,
   };
 
+  // geting ayykori user trace value from localstorage
   const affUserTrackId = localStorage.getItem("affUserTrackId");
   const affUserActivityId = localStorage.getItem("affUserActivityId");
 
@@ -39,9 +40,9 @@ const Purchase = () => {
     //   .then((data) => console.log(data));
     // this post api for ayykori end
 
-    const fetchurl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
+    const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
 
-    fetch(fetchurl, {
+    fetch(fetchUrl, {
       method: "POST",
       headers: {
         "content-type": "application/json",
