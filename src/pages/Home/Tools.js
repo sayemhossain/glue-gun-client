@@ -11,7 +11,7 @@ const Tools = () => {
           className="text-3xl font-bold uppercase"
           style={{ fontFamily: "Teko" }}
         >
-          Tools Categor
+          Tools Category
         </h1>
         <p className="text-orange-400">
           <small>Totol items: {tools.length}</small>
