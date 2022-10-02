@@ -27,7 +27,7 @@ const Purchase = () => {
   const affUserTrackId = localStorage.getItem("affUserTrackId");
   const affUserActivityId = localStorage.getItem("affUserActivityId");
 
-  if (userActivityId) {
+  if (userActivityId && userTrackId) {
     // this post api for ayykori start
     // fetch(`http://localhost:5000/clientuseractivity/${userActivityId}`, {
     //   method: "POST",
