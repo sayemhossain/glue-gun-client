@@ -40,8 +40,15 @@ const Purchase = () => {
     //   .then((data) => console.log(data));
     // this post api for ayykori end
 
-    const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
+    // fetch(`http://localhost:5000/useractivity/${userActivityId}`, {
+    //   method: "GET",
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     const id = data[0]._id;
+    //   });
 
+    const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
     fetch(fetchUrl, {
       method: "POST",
       headers: {
