@@ -32,7 +32,7 @@ const Blogs = () => {
           </h3>
           <p className="pl-2">
             <ul>
-              <li>1. Keepin component state local wher necessary.</li>
+              <li>1. Keeping component state local wher necessary.</li>
               <li>
                 2. Memoizing React components to prevent unnecessary re-renders.
               </li>
