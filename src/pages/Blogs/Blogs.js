@@ -34,7 +34,7 @@ const Blogs = () => {
             <ul>
               <li>1. Keeping component state local wher necessary.</li>
               <li>
-                2. Memoizing React components to prevent unnecessary re-renders.
+                2. Memoizin React components to prevent unnecessary re-renders.
               </li>
               <li>3. Code-splitting in React using dynamic import()</li>
               <li>4. Windowing or list virtualization in React.</li>
