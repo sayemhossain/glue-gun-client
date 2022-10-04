@@ -25,7 +25,7 @@ const Blog = () => {
           <div className="">
             <img className="w-full h-60" src={blog4} alt="" />
             <h1 className="text-xl mt-5 mb-4 text-gray-600 blog-header">
-              What are th Benefits of using Industrial Glue Guns?
+              What are the Benefits of using Industrial Glue Guns?
             </h1>
             <p>
               Benefits of a hot glue gun You can dispose of them as your other
