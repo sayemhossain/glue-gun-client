@@ -8,7 +8,6 @@ import useToolDetails from "../../hooks/useToolDetails";
 const Purchase = () => {
   // Here we are catch the link from url
   const url = window.location.href;
-  const traceIf = url.query.userTrackId;
 
   // This is for finding the user info (to see whose link has been clicked)
   const affInfo = url?.split("?").pop();
