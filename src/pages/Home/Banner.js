@@ -24,7 +24,7 @@ const Banner = () => {
               Hot Melt Glue Gun Kit Is Environmental-Friendly, It Has Super
               Strong Adhesive When Glue Between 2 Different Parts, But Easy To
               Clean When Forced Apart These 2 Stickup Parts, It Will Always Keep
-              Your Items Clean
+              Your Items Clean.
             </p>
             <button className="btn btn-primary">
               Read More <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
