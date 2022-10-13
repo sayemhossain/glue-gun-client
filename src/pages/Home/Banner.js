@@ -27,7 +27,7 @@ const Banner = () => {
               Your Items Clean.
             </p>
             <button className="btn btn-primary">
-              Read Mor <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+              Read More <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
             </button>
           </div>
         </div>
