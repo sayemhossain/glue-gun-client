@@ -275,7 +275,7 @@ const Purchase = () => {
                       </div>
                       <div class="form-control">
                         <label class="label">
-                          <span class="label-text">Phone</span>
+                          <span class="label-text">Phon</span>
                         </label>
                         <input
                           type="text"
