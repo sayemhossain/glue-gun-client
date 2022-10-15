@@ -287,7 +287,7 @@ const Purchase = () => {
                       </div>
                       <div class="form-control">
                         <label class="label">
-                          <span class="label-text">Addres</span>
+                          <span class="label-text">Address</span>
                         </label>
                         <textarea
                           name="address"
