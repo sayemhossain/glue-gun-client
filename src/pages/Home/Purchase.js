@@ -100,6 +100,7 @@ const Purchase = () => {
         price,
         orderQuantity,
         totalCost,
+        deliveryStatus: "pending",
         affUserTrackId,
         affUserActivityId,
       };
