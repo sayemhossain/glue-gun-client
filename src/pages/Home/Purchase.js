@@ -235,7 +235,7 @@ const Purchase = () => {
                 </span>
               </p>
               <p>
-                Minimum Order Quantity :{" "}
+                Minimu Order Quantity :{" "}
                 <span className="text-red-500 font-bold">
                   {minimum_order_quantity}
                 </span>
