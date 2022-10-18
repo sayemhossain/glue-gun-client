@@ -122,7 +122,7 @@ const Purchase = () => {
       const newQuantity = available_quantity - orderQuantity;
 
       // this post api for ayykori start
-      fetch(`http://localhost:5000/clientorders`, {
+      fetch(`https://api.ayykori.com/clientorders`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
