@@ -47,7 +47,10 @@ const Purchase = () => {
     //   .then((data) => {
     //     const id = data[0]._id;
     //   });
-    if (affUserTrackId && affUserActivityId) {
+    if (
+      affUserTrackId == userTrackId &&
+      affUserActivityId == affUserActivityId
+    ) {
       const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
       fetch(fetchUrl, {
         method: "POST",
