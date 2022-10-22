@@ -48,20 +48,39 @@ const Purchase = () => {
     //     const id = data[0]._id;
     //   });
 
-    const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
-    fetch(fetchUrl, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        // const affUsersDBId = result.insertedId;
-        localStorage.setItem("affUserTrackId", userTrackId);
-        localStorage.setItem("affUserActivityId", userActivityId);
-      });
+    if (
+      affUserActivityId === userActivityId &&
+      affUserTrackId === userTrackId
+    ) {
+      const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
+      fetch(fetchUrl, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          // const affUsersDBId = result.insertedId;
+          console.log(result);
+        });
+    } else {
+      const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
+      fetch(fetchUrl, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          // const affUsersDBId = result.insertedId;
+          localStorage.setItem("affUserTrackId", userTrackId);
+          localStorage.setItem("affUserActivityId", userActivityId);
+        });
+    }
   }
 
   const [user] = useAuthState(auth);
@@ -198,7 +217,7 @@ const Purchase = () => {
   setTimeout(() => {
     localStorage.removeItem("affUserActivityId");
     localStorage.removeItem("affUserTrackId");
-  }, 604800 * 1000);
+  }, 1296000 * 1000);
   // 604800 * 1000(7day)
   // 1296000 * 1000(15day)
 
