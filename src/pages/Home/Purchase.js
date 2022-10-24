@@ -12,34 +12,28 @@ const Purchase = () => {
   // This is for finding the user info (to see whose link has been clicked)
   const affInfo = url?.split("?").pop();
 
-  const userTrack = affInfo?.split("&")[0];
-  const userActivity = affInfo?.split("&")[1];
+  // const userTrack = affInfo?.split("&")[0];
+  // const userActivity = affInfo?.split("&")[1];
 
-  const userTrackId = userTrack?.split("=")[1];
-  const userActivityId = userActivity?.split("=")[1];
+  // const userTrackId = userTrack?.split("=")[1];
+  // const userActivityId = userActivity?.split("=")[1];
 
+  const userActivityId = affInfo?.split("=")[1];
+
+  // const data = {
+  //   userTrackId,
+  //   userActivityId,
+  // };
   const data = {
-    userTrackId,
     userActivityId,
   };
 
   // geting ayykori user trace value from localstorage
-  const affUserTrackId = localStorage.getItem("affUserTrackId");
-  const affUserActivityId = localStorage.getItem("affUserActivityId");
+  // const affUserTrackId = localStorage.getItem("affUserTrackId");
+  // const affUserActivityId = localStorage.getItem("affUserActivityId");
+  const affUserActivityId = localStorage.getItem("user_activity_key");
 
-  if (userActivityId && userTrackId) {
-    // this post api for ayykori start
-    // fetch(`http://localhost:5000/clientuseractivity/${userActivityId}`, {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
-    // this post api for ayykori end
-
+  if (userActivityId) {
     // fetch(`http://localhost:5000/useractivity/${userActivityId}`, {
     //   method: "GET",
     // })
@@ -48,24 +42,30 @@ const Purchase = () => {
     //     const id = data[0]._id;
     //   });
 
-    if (
-      affUserActivityId === userActivityId &&
-      affUserTrackId === userTrackId
-    ) {
-      const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
-      fetch(fetchUrl, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          // const affUsersDBId = result.insertedId;
-          console.log(result);
-        });
+    if (affUserActivityId === userActivityId) {
     } else {
+      // this post api for ayykori start
+      fetch(
+        `https://api.mkadsdigital.com/userativity/track/${userActivityId}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+
+          if (data == true) {
+            console.log("found");
+          } else {
+            console.log("not found");
+          }
+        });
+
       const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
       fetch(fetchUrl, {
         method: "POST",
@@ -77,8 +77,9 @@ const Purchase = () => {
         .then((res) => res.json())
         .then((result) => {
           // const affUsersDBId = result.insertedId;
-          localStorage.setItem("affUserTrackId", userTrackId);
-          localStorage.setItem("affUserActivityId", userActivityId);
+          // localStorage.setItem("affUserTrackId", userTrackId);
+          // localStorage.setItem("affUserActivityId", userActivityId);
+          localStorage.setItem("user_activity_key", userActivityId);
         });
     }
   }
@@ -112,7 +113,7 @@ const Purchase = () => {
     }
     const totalCost = orderQuantity * price;
 
-    if (affUserTrackId && affUserActivityId) {
+    if (affUserActivityId) {
       const affOrder = {
         orderId: _id,
         productName: name,
@@ -120,7 +121,6 @@ const Purchase = () => {
         orderQuantity,
         totalCost,
         deliveryStatus: "pending",
-        affUserTrackId,
         affUserActivityId,
       };
       const order = {
@@ -135,7 +135,6 @@ const Purchase = () => {
         totalCost,
         address,
         phone,
-        affUserTrackId,
         affUserActivityId,
       };
       const newQuantity = available_quantity - orderQuantity;
