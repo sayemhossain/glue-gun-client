@@ -12,49 +12,26 @@ const Purchase = () => {
   // This is for finding the user info (to see whose link has been clicked)
   const affInfo = url?.split("?").pop();
 
-  // const userTrack = affInfo?.split("&")[0];
-  // const userActivity = affInfo?.split("&")[1];
+  const user_activity_id = affInfo?.split("=")[1];
 
-  // const userTrackId = userTrack?.split("=")[1];
-  // const userActivityId = userActivity?.split("=")[1];
-
-  const userActivityId = affInfo?.split("=")[1];
-
-  // const data = {
-  //   userTrackId,
-  //   userActivityId,
-  // };
   const data = {
-    userActivityId,
+    user_activity_id,
   };
 
   // geting ayykori user trace value from localstorage
-  // const affUserTrackId = localStorage.getItem("affUserTrackId");
-  // const affUserActivityId = localStorage.getItem("affUserActivityId");
-  const affUserActivityId = localStorage.getItem("user_activity_key");
+  const user_activity_key = localStorage.getItem("user_activity_key");
 
-  if (userActivityId) {
-    // fetch(`http://localhost:5000/useractivity/${userActivityId}`, {
-    //   method: "GET",
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     const id = data[0]._id;
-    //   });
-
-    if (affUserActivityId === userActivityId) {
+  if (user_activity_id) {
+    if (user_activity_key === user_activity_id) {
     } else {
       // this post api for ayykori start
-      fetch(
-        `https://api.mkadsdigital.com/userativity/track/${userActivityId}`,
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      )
+      fetch(`http://localhost:5000/userativity/track/`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -63,10 +40,11 @@ const Purchase = () => {
             console.log("found");
           } else {
             console.log("not found");
+            return;
           }
         });
 
-      const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${userActivityId}`;
+      const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${user_activity_id}`;
       fetch(fetchUrl, {
         method: "POST",
         headers: {
@@ -76,10 +54,7 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((result) => {
-          // const affUsersDBId = result.insertedId;
-          // localStorage.setItem("affUserTrackId", userTrackId);
-          // localStorage.setItem("affUserActivityId", userActivityId);
-          localStorage.setItem("user_activity_key", userActivityId);
+          localStorage.setItem("user_activity_key", user_activity_id);
         });
     }
   }
@@ -113,7 +88,7 @@ const Purchase = () => {
     }
     const totalCost = orderQuantity * price;
 
-    if (affUserActivityId) {
+    if (user_activity_key) {
       const affOrder = {
         orderId: _id,
         productName: name,
@@ -121,7 +96,7 @@ const Purchase = () => {
         orderQuantity,
         totalCost,
         deliveryStatus: "pending",
-        affUserActivityId,
+        user_activity_key,
       };
       const order = {
         orderId: _id,
@@ -135,12 +110,12 @@ const Purchase = () => {
         totalCost,
         address,
         phone,
-        affUserActivityId,
+        user_activity_key,
       };
       const newQuantity = available_quantity - orderQuantity;
 
       // this post api for ayykori start
-      fetch(`https://api.ayykori.com/clientorders`, {
+      fetch(`http://localhost:5000/client/orders/track`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -214,7 +189,7 @@ const Purchase = () => {
 
   // this setTimeOut for expiring the token
   setTimeout(() => {
-    localStorage.removeItem("affUserActivityId");
+    localStorage.removeItem("user_activity_key");
     localStorage.removeItem("affUserTrackId");
   }, 1296000 * 1000);
   // 604800 * 1000(7day)
