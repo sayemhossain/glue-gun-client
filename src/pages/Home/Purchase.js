@@ -6,7 +6,7 @@ import auth from "../../firebase.init";
 import useToolDetails from "../../hooks/useToolDetails";
 
 const Purchase = () => {
-  // Here we are catch the link from url
+  // Here we are catch the link from ur
   const url = window.location.href;
 
   // This is for finding the user info (to see whose link has been clicked)
