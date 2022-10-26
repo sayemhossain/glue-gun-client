@@ -30,6 +30,7 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((result) => {
+          console.log(result);
           if (result == true) {
             console.log("found");
             localStorage.setItem("user_activity_key", user_activity_id);
