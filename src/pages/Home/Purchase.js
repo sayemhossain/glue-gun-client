@@ -6,13 +6,9 @@ import auth from "../../firebase.init";
 import useToolDetails from "../../hooks/useToolDetails";
 
 const Purchase = () => {
-  // Here we are catch the link from url
-  const url = window.location.href;
-
-  // This is for finding the user info (to see whose link has been clicked)
-  const affInfo = url?.split("?").pop();
-
-  const user_activity_id = affInfo?.split("=")[1];
+  // Here we are catch the user_activity_id from url
+  const params = new URLSearchParams(window.location.search);
+  const user_activity_id = params.get("user_activity_id");
 
   const data = {
     user_activity_id,
@@ -33,27 +29,27 @@ const Purchase = () => {
         body: JSON.stringify(data),
       })
         .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-
-          if (data == true) {
+        .then((result) => {
+          if (result == true) {
             console.log("found");
+            localStorage.setItem("user_activity_key", user_activity_id);
+
+            const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${user_activity_id}`;
+            fetch(fetchUrl, {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(data),
+            })
+              .then((res) => res.json())
+              .then((result) => {
+                console.log(result);
+                // localStorage.setItem("user_activity_key", user_activity_id);
+              });
           } else {
             console.log("not found");
           }
-        });
-
-      const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${user_activity_id}`;
-      fetch(fetchUrl, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          localStorage.setItem("user_activity_key", user_activity_id);
         });
     }
   }
