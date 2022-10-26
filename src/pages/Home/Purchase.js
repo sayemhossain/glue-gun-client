@@ -40,7 +40,6 @@ const Purchase = () => {
             console.log("found");
           } else {
             console.log("not found");
-            return;
           }
         });
 
