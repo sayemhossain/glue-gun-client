@@ -26,9 +26,7 @@ const Purchase = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: {
-          data: user_activity_id,
-        },
+        body: JSON.stringify(data),
       })
         .then((res) => res.json())
         .then((result) => {
