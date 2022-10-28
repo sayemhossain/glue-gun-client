@@ -45,7 +45,7 @@ const Blogs = () => {
             <div className="flex items-center">
               <h3 className="mr-3 text-4xl font-bold">05</h3>
               <p>
-                March <br /> 2022
+                March <br /> 202
               </p>
             </div>
             <div className="flex items-center">
