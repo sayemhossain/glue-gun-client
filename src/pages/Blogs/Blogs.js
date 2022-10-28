@@ -43,7 +43,7 @@ const Blogs = () => {
           </p>
           <div className="flex justify-between bg-amber-100 mt-5 p-4">
             <div className="flex items-center">
-              <h3 className="mr-3 text-4xl font-bold">0</h3>
+              <h3 className="mr-3 text-4xl font-bold">05</h3>
               <p>
                 March <br /> 2022
               </p>
