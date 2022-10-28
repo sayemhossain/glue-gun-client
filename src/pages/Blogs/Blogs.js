@@ -28,7 +28,7 @@ const Blogs = () => {
             <img className="w-full h-44" src={blog1} alt="" />
           </div>
           <h3 className="text-xl mt-5 mb-4 px-1 text-gray-600 blog-header">
-            Optimizing performance in a React application
+            Optimizing performance in a React applicatin
           </h3>
           <p className="pl-2">
             <ul>
