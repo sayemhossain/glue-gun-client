@@ -16,7 +16,7 @@ const Blogs = () => {
           className="text-3xl font-bold uppercase"
           style={{ fontFamily: "Teko" }}
         >
-          Our recent blog
+          Our recent blogs
         </h1>
         <p className="text-orange-400">
           <small>Top Blog</small>
