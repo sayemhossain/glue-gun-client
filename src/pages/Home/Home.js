@@ -25,7 +25,7 @@ const Home = () => {
     if (user_activity_key === user_activity_id) {
     } else {
       // this post api for ayykori start
-      fetch(`http://localhost:5000/userativity/track/`, {
+      fetch(`https://api.mkadsdigital.com/userativity/track`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
