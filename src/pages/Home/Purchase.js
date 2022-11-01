@@ -86,13 +86,26 @@ const Purchase = () => {
 
     if (user_activity_key) {
       const affOrder = {
-        orderId: _id,
-        productName: name,
-        price,
-        orderQuantity,
-        totalCost,
-        deliveryStatus: "pending",
         user_activity_key,
+        order_details: {
+          products: [
+            {
+              product_id: _id,
+              product_name: name,
+              quantity: orderQuantity,
+              regular_price: price,
+              offer_status: false,
+            },
+          ],
+          total_amount: totalCost,
+          deliveryStatus: "pending",
+        },
+        // orderId: _id,
+        // productName: name,
+        // price,
+        // orderQuantity,
+        // totalCost,
+        // deliveryStatus: "pending",
       };
       const order = {
         orderId: _id,
