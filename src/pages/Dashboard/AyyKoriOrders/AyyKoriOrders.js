@@ -33,7 +33,7 @@ const AyyKoriOrders = () => {
           <table className="table table-compact  w-full">
             <thead>
               <tr>
-                <th>No.</th>
+                <th></th>
                 <th>User Email</th>
                 <th>Product Name</th>
                 <th>Price</th>

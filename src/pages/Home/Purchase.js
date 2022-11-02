@@ -21,7 +21,7 @@ const Purchase = () => {
     if (user_activity_key === user_activity_id) {
     } else {
       // this post api for ayykori start
-      fetch(`https://api.mkadsdigital.com/userativity/track`, {
+      fetch(`http://localhost:5000/userativity/track`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -100,12 +100,6 @@ const Purchase = () => {
           total_amount: totalCost,
           deliveryStatus: "pending",
         },
-        // orderId: _id,
-        // productName: name,
-        // price,
-        // orderQuantity,
-        // totalCost,
-        // deliveryStatus: "pending",
       };
       const order = {
         orderId: _id,
@@ -124,7 +118,7 @@ const Purchase = () => {
       const newQuantity = available_quantity - orderQuantity;
 
       // this post api for ayykori start
-      fetch(`https://api.mkadsdigital.com/client/orders/track`, {
+      fetch(`http://localhost:5000/client/orders/track`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
