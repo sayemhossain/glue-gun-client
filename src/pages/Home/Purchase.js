@@ -21,7 +21,7 @@ const Purchase = () => {
     if (user_activity_key === user_activity_id) {
     } else {
       // this post api for ayykori start
-      fetch(`https://intense-cove-25675.herokuapp.com/userativity/track`, {
+      fetch(`https://api.mkadsdigital.com/userativity/track`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -118,7 +118,7 @@ const Purchase = () => {
       const newQuantity = available_quantity - orderQuantity;
 
       // this post api for ayykori start
-      fetch(`https://intense-cove-25675.herokuapp.com/client/orders/track`, {
+      fetch(`https://api.mkadsdigital.com/client/orders/track`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
