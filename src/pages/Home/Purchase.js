@@ -21,13 +21,16 @@ const Purchase = () => {
     if (user_activity_key === user_activity_id) {
     } else {
       // this post api for ayykori start
-      fetch(`http://localhost:5000/userativity/track`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ user_activity_id }),
-      })
+      fetch(
+        `https://immense-/demo/waters-78864.herokuapp.com/userativity/track`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ user_activity_id }),
+        }
+      )
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
@@ -35,7 +38,7 @@ const Purchase = () => {
             console.log("found");
             localStorage.setItem("user_activity_key", user_activity_id);
 
-            const fetchUrl = `http://localhost:5000/affsite/${user_activity_id}`;
+            const fetchUrl = `https://immense-/demo/waters-78864.herokuapp.com/affsite/${user_activity_id}`;
             fetch(fetchUrl, {
               method: "POST",
               headers: {
@@ -118,18 +121,21 @@ const Purchase = () => {
       const newQuantity = available_quantity - orderQuantity;
 
       // this post api for ayykori start
-      fetch(`http://localhost:5000/client/orders/track`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(affOrder),
-      })
+      fetch(
+        `https://immense-/demo/waters-78864.herokuapp.com/client/orders/track`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(affOrder),
+        }
+      )
         .then((res) => res.json())
         .then((data) => console.log(data));
       // this post api for ayykori end
 
-      fetch(`http://localhost:5000/order`, {
+      fetch(`https://immense-/demo/waters-78864.herokuapp.com/order`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -138,7 +144,7 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          const url = `http://localhost:5000/tools/${_id}`;
+          const url = `https://immense-/demo/waters-78864.herokuapp.com/tools/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {
@@ -166,7 +172,7 @@ const Purchase = () => {
       };
       const newQuantity = available_quantity - orderQuantity;
 
-      fetch(`http://localhost:5000/order`, {
+      fetch(`https://immense-/demo/waters-78864.herokuapp.com/order`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -175,7 +181,7 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          const url = `http://localhost:5000/tools/${_id}`;
+          const url = `https://immense-/demo/waters-78864.herokuapp.com/tools/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {

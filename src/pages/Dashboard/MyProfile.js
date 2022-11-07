@@ -11,7 +11,7 @@ const MyProfile = () => {
 
   const email = user.email;
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${email}`)
+    fetch(`https://immense-/demo/waters-78864.herokuapp.com/user/${email}`)
       .then((res) => res.json())
       .then((data) => setUserProfile(data));
   }, [user, userProfile]);
@@ -23,7 +23,7 @@ const MyProfile = () => {
 
     const email = user?.email;
     const userInfo = { phone, address };
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://immense-/demo/waters-78864.herokuapp.com/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

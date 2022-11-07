@@ -4,7 +4,7 @@ const useTools = () => {
   const [tools, setTools] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tools`)
+    fetch(`https://immense-/demo/waters-78864.herokuapp.com/tools`)
       .then((res) => res.json())
       .then((data) => setTools(data));
   }, [tools]);
@@ -12,4 +12,4 @@ const useTools = () => {
 };
 export default useTools;
 
-// http://localhost:5000/
+// https://immense-/demo/waters-78864.herokuapp.com/

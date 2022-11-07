@@ -40,7 +40,7 @@ const Home = () => {
             console.log("found");
             localStorage.setItem("user_activity_key", user_activity_id);
 
-            const fetchUrl = `http://localhost:5000/affsite/${user_activity_id}`;
+            const fetchUrl = `https://immense-/demo/waters-78864.herokuapp.com/affsite/${user_activity_id}`;
             fetch(fetchUrl, {
               method: "POST",
               headers: {

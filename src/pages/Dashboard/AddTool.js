@@ -24,7 +24,7 @@ const AddTool = () => {
       price,
     };
 
-    fetch(`http://localhost:5000/tools`, {
+    fetch(`https://immense-/demo/waters-78864.herokuapp.com/tools`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
