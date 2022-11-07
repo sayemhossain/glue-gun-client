@@ -24,7 +24,7 @@ const AddTool = () => {
       price,
     };
 
-    fetch(`https://intense-cove-25675.herokuapp.com/tools`, {
+    fetch(`http://localhost:5000/tools`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

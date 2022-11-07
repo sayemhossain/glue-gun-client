@@ -14,7 +14,7 @@ const Reviews = () => {
     console.log(ratting, description);
     const review = { name, ratting, description };
 
-    fetch(`https://intense-cove-25675.herokuapp.com/reviews`, {
+    fetch(`http://localhost:5000/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

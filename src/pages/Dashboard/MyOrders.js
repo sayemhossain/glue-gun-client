@@ -9,12 +9,9 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(
-        `https://intense-cove-25675.herokuapp.com/order?user=${user.email}`,
-        {
-          method: "GET",
-        }
-      )
+      fetch(`http://localhost:5000/order?user=${user.email}`, {
+        method: "GET",
+      })
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }
