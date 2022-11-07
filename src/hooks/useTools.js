@@ -4,7 +4,7 @@ const useTools = () => {
   const [tools, setTools] = useState([]);
 
   useEffect(() => {
-    fetch(`https://immense-/demo/waters-78864.herokuapp.com/tools`)
+    fetch(`https://intense-cove-25675.herokuapp.com/tools`)
       .then((res) => res.json())
       .then((data) => setTools(data));
   }, [tools]);
@@ -12,4 +12,4 @@ const useTools = () => {
 };
 export default useTools;
 
-// https://immense-/demo/waters-78864.herokuapp.com/
+// https://intense-cove-25675.herokuapp.com/

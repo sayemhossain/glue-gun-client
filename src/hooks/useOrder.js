@@ -7,12 +7,9 @@ const useOrder = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(
-      `https://immense-/demo/waters-78864.herokuapp.com/order?user=${user.email}`,
-      {
-        method: "GET",
-      }
-    )
+    fetch(`https://intense-cove-25675.herokuapp.com/order?user=${user.email}`, {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [orders]);

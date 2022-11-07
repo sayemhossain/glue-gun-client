@@ -12,17 +12,14 @@ const CheckoutForm = ({ order }) => {
 
   const { _id, totalCost, user, customerNamer } = order;
   useEffect(() => {
-    fetch(
-      `https://immense-/demo/waters-78864.herokuapp.com/create-payment-intent`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ totalCost }),
-      }
-    )
+    fetch(`https://intense-cove-25675.herokuapp.com/create-payment-intent`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ totalCost }),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -78,7 +75,7 @@ const CheckoutForm = ({ order }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`https://immense-/demo/waters-78864.herokuapp.com/order/${_id}`, {
+      fetch(`https://intense-cove-25675.herokuapp.com/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

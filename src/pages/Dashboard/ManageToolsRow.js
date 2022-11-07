@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 const ManageToolsRow = ({ tool, index }) => {
   const { _id } = tool;
   const handleDeleteTool = () => {
-    fetch(`https://immense-/demo/waters-78864.herokuapp.com/tools/${_id}`, {
+    fetch(`https://intense-cove-25675.herokuapp.com/tools/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

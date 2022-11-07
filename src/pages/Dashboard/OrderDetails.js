@@ -24,7 +24,7 @@ const OrderDetails = ({ order, index }) => {
   } = order;
 
   const handleDeleteOrder = () => {
-    fetch(`https://immense-/demo/waters-78864.herokuapp.com/order/${_id}`, {
+    fetch(`https://intense-cove-25675.herokuapp.com/order/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

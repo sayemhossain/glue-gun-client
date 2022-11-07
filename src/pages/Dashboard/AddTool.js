@@ -24,7 +24,7 @@ const AddTool = () => {
       price,
     };
 
-    fetch(`https://immense-/demo/waters-78864.herokuapp.com/tools`, {
+    fetch(`https://intense-cove-25675.herokuapp.com/tools`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
