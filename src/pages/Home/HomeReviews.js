@@ -28,7 +28,7 @@ const HomeReviews = () => {
           <small>reviews</small>
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {reviews.map((review) => (
           <HomeReviewContainer
             key={review._id}

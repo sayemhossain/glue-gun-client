@@ -20,8 +20,8 @@ const Tool = ({ tool }) => {
     available_quantity,
   } = tool;
   return (
-    <div className="px-5">
-      <div className="card tool-card md:w-96 bg-base-100 shadow-xl">
+    <div className="px-5 md:px-0">
+      <div className="card tool-card bg-base-100 h-[550px] shadow-xl ">
         <figure>
           <img className="w-48 h-48" src={img} />
         </figure>
