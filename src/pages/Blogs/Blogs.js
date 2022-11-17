@@ -1,213 +1,118 @@
 import React from "react";
-import Blog from "../Home/Blog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots, faEye } from "@fortawesome/free-solid-svg-icons";
-import blog1 from "../../assets/blog1.png";
-import blog2 from "../../assets/blog2.png";
-import blog3 from "../../assets/blog3.png";
-import blog4 from "../../assets/blog4.png";
-import blog5 from "../../assets/blog5.webp";
+import blog2 from "../../assets/blog/blog2.jpg";
+import blog3 from "../../assets/blog/blog3.jpg";
+import blog4 from "../../assets/blog/blog4.webp";
 
 const Blogs = () => {
   return (
-    <div className="pb-16 px-5 md:px-20">
+    <div className="px-5 md:px-20 pb-10">
       <div className="text-center pt-10">
         <h1
           className="text-3xl font-bold uppercase"
           style={{ fontFamily: "Teko" }}
         >
-          Our recent blogs
+          Recent posts
         </h1>
         <p className="text-orange-400">
-          <small>Top Blog</small>
+          <small>Our Blog</small>
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 mt-10">
-        <div className="shadow-xl">
-          <div>
-            <img className="w-full h-44" src={blog1} alt="" />
-          </div>
-          <h3 className="text-xl mt-5 mb-4 px-1 text-gray-600 blog-header">
-            Optimizing performance in a React application
-          </h3>
-          <p className="pl-2">
-            <ul>
-              <li>1. Keeping component state local wher necessary.</li>
-              <li>
-                2. Memoizing React components to prevent unnecessary re-renders.
-              </li>
-              <li>3. Code-splitting in React using dynamic import()</li>
-              <li>4. Windowing or list virtualization in React.</li>
-              <li>5. Lazy loading images in React.</li>
-            </ul>
-          </p>
-          <div className="flex justify-between bg-amber-100 mt-5 p-4">
-            <div className="flex items-center">
-              <h3 className="mr-3 text-4xl font-bold">05</h3>
-              <p>
-                March <br /> 2022
-              </p>
-            </div>
-            <div className="flex items-center">
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
-              <p className="mr-2">1712</p>
-
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
-              <p>265</p>
-            </div>
-          </div>
-        </div>
-        <div className="shadow-xl">
-          <div>
-            <img className="w-full h-44" src={blog5} alt="" />
-          </div>
-          <h3 className="text-xl mt-5 mb-4 px-1 text-gray-600 blog-header">
-            What is a unit test? Why should write unit tests?
-          </h3>
-
-          <div className="pl-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+        <div className="blog-card">
+          <div className="">
+            <img className="w-full h-60" src={blog4} alt="" />
+            <h1 className="text-xl mt-5 mb-4 text-gray-600 blog-header">
+              What are the Benefits of using Industrial Glue Guns?
+            </h1>
             <p>
-              Unit tests are typically automated tests written and run by
-              software developers to ensure that a section of an application
-              (known as the "unit") meets its design and behaves as intended. In
-              procedural programming, a unit could be an entire module, but it
-              is more commonly an individual function or procedure.
+              Benefits of a hot glue gun You can dispose of them as your other
+              waste material. A glue gun does not create a huge waste. Most of
+              its part is utilized in work, and you don’t have to clean the
+              mess. There are no volatile alternatives...
+              <a href="" className="text-primary">
+                Read more
+              </a>
             </p>
-          </div>
-          <div className="flex justify-between items-baseline bg-amber-100 mt-5 p-4">
-            <div className="flex items-center">
-              <h3 className="mr-3 text-4xl font-bold">28</h3>
-              <p>
-                April <br /> 2022
-              </p>
-            </div>
-            <div className="flex items-center">
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
-              <p className="mr-2">6532</p>
+            <div className="flex justify-between bg-amber-100 mt-5 p-4">
+              <div className="flex items-center">
+                <h3 className="mr-3 text-4xl font-bold">25</h3>
+                <p>
+                  September <br /> 2021
+                </p>
+              </div>
+              <div className="flex items-center">
+                <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
+                <p className="mr-2">3412</p>
 
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
-              <p>1261</p>
-            </div>
-          </div>
-        </div>
-        <div className="shadow-xl">
-          <div>
-            <img className="w-full h-44" src={blog2} alt="" />
-          </div>
-          <h3 className="text-xl mt-5 mb-4 px-1 text-gray-600 blog-header">
-            What are the different ways to manage a state in a React
-            application?
-          </h3>
-
-          <div className="pl-2">
-            <span>The Four Kinds of React State to Manage : </span>
-            <br />
-            <p className="mt-2">
-              <span className="font-bold">Local (UI) state –</span> Local state
-              is data we manage in one or another component.
-            </p>
-            <p className="mt-1">
-              <span className="font-bold">Global (UI) state – </span> Global
-              state is data we manage across multiple components.
-            </p>
-            <p className="mt-1">
-              <span className="font-bold">Server state – </span> Data that comes
-              from an external server that must be integrated with our UI state.
-            </p>
-            <p className="mt-1">
-              <span className="font-bold">URL state – </span> Data that exists
-              on our URLs, including the pathname and query parameters.
-            </p>
-          </div>
-          <div className="flex justify-between items-baseline bg-amber-100 mt-5 p-4">
-            <div className="flex items-center">
-              <h3 className="mr-3 text-4xl font-bold">16</h3>
-              <p>
-                May <br /> 2022
-              </p>
-            </div>
-            <div className="flex items-center">
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
-              <p className="mr-2">897</p>
-
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
-              <p>532</p>
+                <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
+                <p>43</p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="shadow-xl">
-          <div>
-            <img className="w-full h-44" src={blog3} alt="" />
-          </div>
-          <h3 className="text-xl mt-5 mb-4 px-1 text-gray-600 blog-header">
-            How does prototypical inheritance work?
-          </h3>
-
-          <div className="pl-2">
+        <div>
+          <div className="blog-card">
+            <img className="w-full h-60" src={blog2} alt="" />
+            <h1 className="text-xl mt-5 text-gray-600 mb-4 blog-header">
+              Fugitive Gummy Glue & Dispensing Industrial Options?
+            </h1>
             <p>
-              The Prototypal Inheritance is a feature in javascript used to add
-              methods and properties in objects. It is a method by which an
-              object can inherit the properties and methods of another object.
-              Traditionally, in order to get and set the [[Prototype]] of an
-              object, we use Object. getPrototypeOf and Object.
+              Fugitive glue, also called gummy glue, credit card glue, e-z
+              release glue, or booger glue is a low-tack adhesive that produces
+              a removable non-permanent joint. The type of duration of folding
+              and gluing operations...
+              <a href="" className="text-primary">
+                Read more
+              </a>
             </p>
-          </div>
-          <div className="flex justify-between items-baseline bg-amber-100 mt-5 p-4">
-            <div className="flex items-center">
-              <h3 className="mr-3 text-4xl font-bold">22</h3>
-              <p>
-                February <br /> 2022
-              </p>
-            </div>
-            <div className="flex items-center">
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
-              <p className="mr-2">1324</p>
+            <div className="flex justify-between bg-amber-100 mt-5 p-4">
+              <div className="flex items-center">
+                <h3 className="mr-3 text-4xl font-bold">19</h3>
+                <p>
+                  February <br /> 2022
+                </p>
+              </div>
+              <div className="flex items-center">
+                <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
+                <p className="mr-2">1487</p>
 
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
-              <p>432</p>
+                <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
+                <p>189</p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="shadow-xl">
-          <div>
-            <img className="w-full h-44" src={blog4} alt="" />
-          </div>
-          <h3 className="text-xl mt-5 mb-4 px-1 text-gray-600 blog-header">
-            Why should we not update the state directly?
-          </h3>
-
-          <div className="pl-2">
+        <div>
+          <div className="blog-card">
+            <img className="w-full h-60" src={blog3} alt="" />
+            <h1 className="text-xl mt-5 text-gray-600 mb-4  blog-header">
+              Save on Gummy Glue with a Pneumatic Dispensing Applicator.
+            </h1>
             <p>
-              <ul>
-                <li>
-                  1. If you update it directly, calling the setState() afterward
-                  may just replace the update you made.
-                </li>
-                <li>
-                  2. When you directly update the state, it does not change
-                  this.state immediately. Instead, it creates a pending state
-                  transition, and accessing it after calling this method will
-                  only return the present value.
-                </li>
-                <li>
-                  3. You will lose control of the state across all components.
-                </li>
-              </ul>
+              If applying fugitive glue by hand is costing you too much time and
+              money, it may be time to upgrade to a bulk tank pneumatic
+              dispensing system. The Infinity Bond EasyMelt Benchtop is offers
+              some big long-term advantages...
+              <a href="" className="text-primary">
+                Read more
+              </a>
             </p>
-          </div>
-          <div className="flex justify-between items-baseline bg-amber-100 mt-5 p-4">
-            <div className="flex items-center">
-              <h3 className="mr-3 text-4xl font-bold">09</h3>
-              <p>
-                April <br /> 2022
-              </p>
-            </div>
-            <div className="flex items-center">
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
-              <p className="mr-2">4652</p>
+            <div className="flex justify-between bg-amber-100 mt-5 p-4">
+              <div className="flex items-center">
+                <h3 className="mr-3 text-4xl font-bold">05</h3>
+                <p>
+                  March <br /> 2022
+                </p>
+              </div>
+              <div className="flex items-center">
+                <FontAwesomeIcon className="ml-2 mr-1" icon={faEye} />
+                <p className="mr-2">1712</p>
 
-              <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
-              <p>765</p>
+                <FontAwesomeIcon className="ml-2 mr-1" icon={faCommentDots} />
+                <p>265</p>
+              </div>
             </div>
           </div>
         </div>
