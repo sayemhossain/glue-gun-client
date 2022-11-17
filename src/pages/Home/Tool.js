@@ -21,7 +21,7 @@ const Tool = ({ tool }) => {
   } = tool;
   return (
     <div className="px-5 md:px-0">
-      <div className="card tool-card bg-base-100 h-[550px] shadow-xl ">
+      <div className="card tool-card bg-base-100 h-[550px] shadow-md ">
         <figure>
           <img className="w-48 h-48" src={img} />
         </figure>
