@@ -98,9 +98,13 @@ const Purchase = () => {
             },
           ],
           total_amount: totalCost,
+          subtotal_amount: totalCost,
+          discount_amount: "",
+          coupon_code: "",
           deliveryStatus: "pending",
         },
       };
+
       const order = {
         orderId: _id,
         productName: name,
