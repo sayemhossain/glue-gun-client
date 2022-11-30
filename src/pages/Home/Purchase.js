@@ -101,7 +101,7 @@ const Purchase = () => {
           subtotal_amount: totalCost,
           discount_amount: "",
           coupon_code: "",
-          deliveryStatus: "pending",
+          delivery_status: "pending",
         },
       };
 
