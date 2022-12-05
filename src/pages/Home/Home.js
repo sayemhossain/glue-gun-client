@@ -40,7 +40,7 @@ const Home = () => {
             console.log("found");
             localStorage.setItem("user_activity_key", user_activity_id);
 
-            const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${user_activity_id}`;
+            const fetchUrl = `https://api.gluegun.offerdoffer.com/affsite/${user_activity_id}`;
             fetch(fetchUrl, {
               method: "POST",
               headers: {

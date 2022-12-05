@@ -5,7 +5,7 @@ const AyyKoriOrders = () => {
   const [affOrders, setAffOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`https://intense-cove-25675.herokuapp.com/orders/userTrackId`, {
+    fetch(`https://api.gluegun.offerdoffer.com/orders/userTrackId`, {
       method: "GET",
     })
       .then((res) => res.json())

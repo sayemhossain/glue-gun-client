@@ -6,7 +6,7 @@ const useAdmin = (user) => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://intense-cove-25675.herokuapp.com/admin/${email}`, {
+      fetch(`https://api.gluegun.offerdoffer.com/admin/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -26,4 +26,4 @@ const useAdmin = (user) => {
 
 export default useAdmin;
 
-// ahttps://intense-cove-25675.herokuapp.com/
+// ahttps://api.gluegun.offerdoffer.com/

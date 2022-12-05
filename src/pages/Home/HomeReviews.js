@@ -5,7 +5,7 @@ const HomeReviews = () => {
   const [reviews, setReiews] = useState([]);
 
   useEffect(() => {
-    fetch(`https://intense-cove-25675.herokuapp.com/reviews`, {
+    fetch(`https://api.gluegun.offerdoffer.com/reviews`, {
       method: "GEt",
       headers: {
         "content-type": "application/json",

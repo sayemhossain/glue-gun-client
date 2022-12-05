@@ -11,7 +11,7 @@ const MyProfile = () => {
 
   const email = user.email;
   useEffect(() => {
-    fetch(`https://intense-cove-25675.herokuapp.com/user/${email}`)
+    fetch(`https://api.gluegun.offerdoffer.com/user/${email}`)
       .then((res) => res.json())
       .then((data) => setUserProfile(data));
   }, [user, userProfile]);
@@ -23,7 +23,7 @@ const MyProfile = () => {
 
     const email = user?.email;
     const userInfo = { phone, address };
-    fetch(`https://intense-cove-25675.herokuapp.com/user/${email}`, {
+    fetch(`https://api.gluegun.offerdoffer.com/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

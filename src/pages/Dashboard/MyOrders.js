@@ -9,12 +9,9 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(
-        `https://intense-cove-25675.herokuapp.com/order?user=${user.email}`,
-        {
-          method: "GET",
-        }
-      )
+      fetch(`https://api.gluegun.offerdoffer.com/order?user=${user.email}`, {
+        method: "GET",
+      })
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }

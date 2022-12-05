@@ -4,7 +4,7 @@ const useTools = () => {
   const [tools, setTools] = useState([]);
 
   useEffect(() => {
-    fetch(`https://intense-cove-25675.herokuapp.com/tools`)
+    fetch(`https://api.gluegun.offerdoffer.com/tools`)
       .then((res) => res.json())
       .then((data) => setTools(data));
   }, [tools]);
@@ -12,4 +12,4 @@ const useTools = () => {
 };
 export default useTools;
 
-// https://intense-cove-25675.herokuapp.com/
+// https://api.gluegun.offerdoffer.com/

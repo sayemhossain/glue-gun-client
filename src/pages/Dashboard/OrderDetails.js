@@ -24,7 +24,7 @@ const OrderDetails = ({ order, index }) => {
   } = order;
 
   const handleDeleteOrder = () => {
-    fetch(`https://intense-cove-25675.herokuapp.com/order/${_id}`, {
+    fetch(`https://api.gluegun.offerdoffer.com/order/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

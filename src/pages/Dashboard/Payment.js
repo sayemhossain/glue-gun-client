@@ -12,7 +12,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { id } = useParams();
 
-  const url = `https://intense-cove-25675.herokuapp.com/order/${id}`;
+  const url = `https://api.gluegun.offerdoffer.com/order/${id}`;
   const { data: order, isLoading } = useQuery(["booking", id], () =>
     fetch(url, {
       method: "GET",

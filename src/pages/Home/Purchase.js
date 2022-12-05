@@ -35,7 +35,7 @@ const Purchase = () => {
             console.log("found");
             localStorage.setItem("user_activity_key", user_activity_id);
 
-            const fetchUrl = `https://intense-cove-25675.herokuapp.com/affsite/${user_activity_id}`;
+            const fetchUrl = `https://api.gluegun.offerdoffer.com/affsite/${user_activity_id}`;
             fetch(fetchUrl, {
               method: "POST",
               headers: {
@@ -133,7 +133,7 @@ const Purchase = () => {
         .then((data) => console.log(data));
       // this post api for ayykori end
 
-      fetch(`https://intense-cove-25675.herokuapp.com/order`, {
+      fetch(`https://api.gluegun.offerdoffer.com/order`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -142,7 +142,7 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          const url = `https://intense-cove-25675.herokuapp.com/tools/${_id}`;
+          const url = `https://api.gluegun.offerdoffer.com/tools/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {
@@ -170,7 +170,7 @@ const Purchase = () => {
       };
       const newQuantity = available_quantity - orderQuantity;
 
-      fetch(`https://intense-cove-25675.herokuapp.com/order`, {
+      fetch(`https://api.gluegun.offerdoffer.com/order`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -179,7 +179,7 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          const url = `https://intense-cove-25675.herokuapp.com/tools/${_id}`;
+          const url = `https://api.gluegun.offerdoffer.com/tools/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {

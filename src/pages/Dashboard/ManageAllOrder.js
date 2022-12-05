@@ -11,7 +11,7 @@ const ManageAllOrder = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://intense-cove-25675.herokuapp.com/orders", {
+    fetch("https://api.gluegun.offerdoffer.com/orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

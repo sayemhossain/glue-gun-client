@@ -7,7 +7,7 @@ const useOrder = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`https://intense-cove-25675.herokuapp.com/order?user=${user.email}`, {
+    fetch(`https://api.gluegun.offerdoffer.com/order?user=${user.email}`, {
       method: "GET",
     })
       .then((res) => res.json())
